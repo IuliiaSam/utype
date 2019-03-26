@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from 'react'; 
 import { connect } from 'react-redux';
 
 import { typigData } from '../../redux/actions/typingActions';
@@ -8,12 +7,12 @@ import { selectLevel } from '../../redux/actions/selectLevelActions';
 import './InputArea.css';
 
 const InputArea = ({ inputText, typigData, selectedLevel, selectLevel }) => {
-  const chosenLevelSymbols = Object.keys(selectedLevel).length
-    ? selectedLevel.symbols
-    : selectLevel(JSON.parse(localStorage.getItem('selectedLevel'))).payload;
+ 
+ 
+
   return (
     <div>
-      <div className="InputArea__sample">{chosenLevelSymbols}</div>
+      <div className="InputArea__sample">{selectedLevel.symbols}</div>
       <div
         className="InputArea__textArea"
         tabIndex={-1}

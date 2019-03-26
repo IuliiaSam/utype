@@ -10,20 +10,7 @@ class Levels extends Component {
   componentDidMount() {
     this.props.getLevelsFromFirebase();
   }
-
-  // drawLevels = data =>
-  //   data.map(level => (
-  //     <li key={level.id} data-id={level.id} className="levels-item">
-  //       <Link
-  //         to={`/${level.title}`}
-  //         data-id={level.id}
-  //         className="item-number"
-  //         onClick={e => chooseLevel(e, levels)}
-  //       >
-  //         {level.id}
-  //       </Link>
-  //     </li>
-  //   ));
+ 
 
   render() {
     const { levels, chooseLevel } = this.props;

@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-
+import { Switch, Route } from 'react-router-dom'; 
 import Levels from '../src/Levels/Levels';
-import './App.css';
-import Form from './components/Form';
+// import Form from './components/Form';
 import Monitor from './components/Monitor/Monitor';
+import './App.css';
 
-class App extends Component {
-  render() {
-    const { levelName } = this.props;
+export default  class App extends Component {
+  render() { 
 
     return (
       <div className="App">
@@ -22,11 +19,4 @@ class App extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    levelName: state.selected.title
-  };
-}
-
-export default connect(mapStateToProps)(App);
+ 
