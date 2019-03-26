@@ -19,7 +19,7 @@ class Levels extends Component {
         {/* <span className="item-level">Level : {level.level}</span>
         <span className="item-row">Row : {level.row}</span>
         <span className="item-title">Title : {level.title} </span> */} 
-          <Link to='/level' className="item-number">
+          <Link to={`/${level.title}`} className="item-number">
               {level.id}
           </Link> 
       </li>
