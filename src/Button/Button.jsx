@@ -4,7 +4,7 @@ import './Button.css'
 
 const Button = () => {
     return (
-        <button className="btn">Sing up</button>
+        <button className="btn" disabled>Sing up</button>
     );
 };
 
