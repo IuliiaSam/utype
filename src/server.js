@@ -1,5 +1,7 @@
 import firebase from 'firebase';
 
+import getLevelsAction from './Levels/Action/getLevelsAction'
+
 const config = {
   apiKey: 'AIzaSyBGJudEPb9UtQOikd8wUxdaKE3M-2kjbCI',
   authDomain: 'utype-1c7dc.firebaseapp.com',
@@ -49,3 +51,12 @@ export function signOut() {
     .then(() => console.log('sign-out successfull'))
     .catch(err => console.log(err));
 }
+
+// ссылка на базу данных
+const firebaseDB = firebase.database();
+
+export const getLevels = () => dispatch =>
+  firebaseDB
+    .ref("levels")
+    .once("value")
+    .then(snap => dispatch(getLevelsAction(snap.val())));

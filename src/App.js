@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Levels from '../src/Levels/Levels';
 import './App.css';
 import Form from './components/Form';
@@ -9,11 +9,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello</h1>
+        <Switch>
+          <Route exact path="/" component={Levels} />
+          <Route path />
+        </Switch>
         {/* <Form /> */}
-        <Monitor />
-
-        <Levels />
+        {/* <Monitor /> */}
       </div>
     );
   }

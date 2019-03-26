@@ -1,52 +1,65 @@
-import React, { Component } from 'react' 
-import {connect} from 'react-redux';  
-import {Link} from 'react-router-dom';
-import {getLevels} from  '../Levels/firebase/firebase';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getLevels } from '../server';
+import choosenLevelAction from '../Levels/Action/choosenLevelAction';
 
 import './levels.css';
 
- 
-
 class Levels extends Component {
- 
-  componentDidMount(){
-    this.props.getLevelsFromFirebase()
+  componentDidMount() {
+    this.props.getLevelsFromFirebase();
   }
-  
-  drawLevels = (data)=> (
-    data.map( level=> (
-      <li key={level.id} data-id={level.id} className="levels-item">
-        {/* <span className="item-level">Level : {level.level}</span>
-        <span className="item-row">Row : {level.row}</span>
-        <span className="item-title">Title : {level.title} </span> */} 
-          <Link to={`/${level.title}`} className="item-number">
-              {level.id}
-          </Link> 
-      </li>
-    ))
-  ) 
+
+  // drawLevels = data =>
+  //   data.map(level => (
+  //     <li key={level.id} data-id={level.id} className="levels-item">
+  //       <Link
+  //         to={`/${level.title}`}
+  //         data-id={level.id}
+  //         className="item-number"
+  //         onClick={e => chooseLevel(e, levels)}
+  //       >
+  //         {level.id}
+  //       </Link>
+  //     </li>
+  //   ));
 
   render() {
-    const {levels} = this.props; 
-    
+    const { levels, chooseLevel } = this.props;
+
     return (
       <div className="levels-container">
-         <ul className="levels-list">
-            {this.drawLevels(levels)}  
-         </ul>
+        <ul className="levels-list">
+          {levels.map(level => (
+            <li key={level.id} data-id={level.id} className="levels-item">
+              <Link
+                to={`/${level.title}`}
+                data-id={level.id}
+                className="item-number"
+                onClick={e => chooseLevel(e, levels)}
+              >
+                {level.id}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    )
+    );
   }
 }
 
-
 // get data from state
-const mstp = (state)=>({
- levels : state.levels,
-})
+const mstp = state => ({
+  levels: state.levels
+});
 
-const mdtp = (dispatch)=>({
-  getLevelsFromFirebase : () => dispatch( getLevels() )
-})
+const mdtp = dispatch => ({
+  getLevelsFromFirebase: () => dispatch(getLevels()),
+  chooseLevel: (e, data) => dispatch(choosenLevelAction(e, data))
+});
 
-export default connect(mstp,mdtp)(Levels);
+export default connect(
+  mstp,
+  mdtp
+)(Levels);
