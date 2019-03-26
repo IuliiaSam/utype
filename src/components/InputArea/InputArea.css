@@ -1,0 +1,17 @@
+.InputArea__sample {
+  padding: .5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.InputArea__textArea {
+  min-height: 30vh;
+  font-size: 1.5rem;
+  padding: .5rem;
+  background-color: rgb(255, 248, 240);
+}
+
+.InputArea__textArea:focus {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.26);
+  outline: none;
+}
