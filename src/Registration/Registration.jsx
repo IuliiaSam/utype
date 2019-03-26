@@ -3,12 +3,13 @@ import {connect} from 'react-redux';
 
 import './Registration.css'
 
-import {readInputValue} from '../redux/actions/inputValueAction';
+import {inputData} from '../redux/actions/inputActions';
+import {createUserWithEmailAndPassword} from '../server';
 import Button from '../Button/Button';
 
-const Registration = ({readInputValue}) => {
+const Registration = ({readInputValue, inputs}) => {
     return (
-        <form className="form flex-column center-box shadow max-width-500 padding-all-25" >
+        <form className="form flex-column center-box shadow max-width-500 padding-all-25" onSubmit={e => { e.preventDefault(); createUserWithEmailAndPassword(inputs.email, inputs.password, inputs.name)}} >
 
             <h1 className="text-center">Sing Up</h1>
 
@@ -18,8 +19,8 @@ const Registration = ({readInputValue}) => {
             </div>
 
             <div className="form-group flex-end">
-                <label for="username" class="input-label"><span>Username</span></label>
-                <input type="text" name="username" class="form-input" placeholder="Username" onChange={readInputValue}></input>
+                <label for="name" class="input-label"><span>Username</span></label>
+                <input type="text" name="name" class="form-input" placeholder="Username" onChange={readInputValue}></input>
             </div>
 
             <div className="form-group flex-end">
@@ -42,12 +43,14 @@ const Registration = ({readInputValue}) => {
     );
 };
 
-
+const MSTP = state => ({
+    inputs: state.inputs,
+})
 
 const MDTP = (dispatch) => ({ 
     readInputValue: e => { 
-        dispatch(readInputValue(e));
+        dispatch(inputData(e));
     },
 })
 
-export default connect(null, MDTP)(Registration);
+export default connect(MSTP, MDTP)(Registration);
