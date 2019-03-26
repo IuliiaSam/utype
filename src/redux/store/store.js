@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-
-import {createStore,applyMiddleware,compose} from 'redux';
-import thunk from 'redux-thunk'; 
-import rootReducer from '../reducers/rootReducer';
-
-
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(rootReducer, devTools(applyMiddleware(thunk)));
-
-
-export default store;
-=======
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/rootReducer';
@@ -36,4 +22,3 @@ store.subscribe(() =>
 );
 
 export default store;
->>>>>>> firebase_setup

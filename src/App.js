@@ -8,25 +8,26 @@ import Levels from '../src/Levels/Levels';
 import './App.css';
 import Form from './components/Form';
 import Monitor from './components/Monitor/Monitor';
+import Validation from './Validation/Validation';
 
 class App extends Component {
-  componentDidMount() {
-    const {history} = this.props;
+//   componentDidMount() {
+//     const {history} = this.props;
 
-    firebase.auth().onAuthStateChanged(user => {
-      if(user) {
-        history.push('/')
-      } else {
-        history.push('/login')
-      }
-    })
-  }
+//     firebase.auth().onAuthStateChanged(user => {
+//       if(user) {
+//         history.push('/')
+//       } else {
+//         history.push('/login')
+//       }
+//     })
+//   }
   render() {
     const { levelName } = this.props;
 
     return (
       <div className="App">
-      <Levels/>
+      {/* <Validation/> */}
         <Switch>
           <Route exact path="/" component={Levels} />
           <Route path={`/:id`} component={Monitor} />
