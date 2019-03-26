@@ -2,26 +2,36 @@ import React from 'react';
 import {counterAction} from '../redux/actions/counterAction';
 import {userArr} from '../redux/actions/userArrAction';
 import {connect} from 'react-redux';
+import './Validation.css';
 
 
-
-const Validation = ({counterAction, userArr}) => {
+const Validation = ({counterAction, userArrAction, counter, symbolsArr, userArr}) => {
+    
+    
     const actions = (e) => {
         counterAction();
-        userArr(e);
+        userArrAction(e.key, counter, symbolsArr);
     }
     return (
-        <textarea onKeyDown={actions}></textarea>
+       <div>
+           <p></p>
+           <p onKeyDown = {actions} className='InputText' tabIndex = {-1}>
+           {userArr.map(el=> <span className={el.isValid ? 'valid' : 'invalid'}>{el.key}</span>)}
+           </p>
+       </div>
+       
     );
 };
 
-// const MSTP = (state) => ({
-   
+const MSTP = (state) => ({
+   counter: state.counter,
+   symbolsArr: state.levels,
+   userArr: state.userArr,
 
-// })
+})
 const MDTP = (dispatch) => ({
     counterAction: function() {dispatch(counterAction())},
-    userArr: function(e) {dispatch(userArr(e))}, 
+    userArrAction: function(key, counter, symbolsArr) {dispatch(userArr(key, counter, symbolsArr))}, 
 })
 
-export default connect(null, MDTP)(Validation);
+export default connect(MSTP, MDTP)(Validation);

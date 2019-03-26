@@ -4,15 +4,18 @@ import Levels from '../src/Levels/Levels';
 import './App.css';
 import Form from './components/Form';
 import Monitor from './components/Monitor/Monitor';
+import Validation from './Validation/Validation';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Switch>
+      <Validation/>
+      <Levels/>
+        {/* <Switch>
           <Route exact path="/" component={Levels} />
           <Route path />
-        </Switch>
+        </Switch> */}
         {/* <Form /> */}
         {/* <Monitor /> */}
       </div>

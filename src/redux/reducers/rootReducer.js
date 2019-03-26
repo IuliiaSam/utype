@@ -8,7 +8,6 @@ import choosenLevelReducer from '../../Levels/Reducer/choosenLevelReducer'
 import setLevelsReducer from '../../Levels/Reducer/setLevelsReducer';
 
 
-
 const rootReducer = combineReducers({
    inputs,
    inputText,

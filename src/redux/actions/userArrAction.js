@@ -1,4 +1,9 @@
-export const userArr = (e) => ({
+export const userArr = (key,counter, symbolsArr) => ({
     type: 'PUSH',
-    key: e.key,
+    obj: {
+        key,
+        id: counter,
+        isValid: symbolsArr[0].symbols.split('')[counter]=== key ? true : false,
+    },
+    
 })
