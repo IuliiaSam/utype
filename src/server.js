@@ -59,4 +59,4 @@ export const getLevels = () => dispatch =>
   firebaseDB
     .ref("levels")
     .once("value")
-.then(snap => dispatch(getLevelsAction(snap.val())));
+    .then(snap => dispatch(getLevelsAction(snap.val())));

@@ -1,0 +1,18 @@
+.MonitorHeader {
+  display: flex;
+  max-width: 60rem;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 1rem 0;
+  background-color: #eee;
+}
+
+.MonitorHeader__item {
+  border-left: 2px solid gray;
+  width: 20%;
+  text-align: center;
+}
+
+.MonitorHeader__item:first-child {
+  border: none;
+}
