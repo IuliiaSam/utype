@@ -2,6 +2,7 @@ const initialState = {
     name: '',
     email: '',
     password: '',
+    confirm_password:'',
 }
 
 const inputs = (state=initialState, action) => {
