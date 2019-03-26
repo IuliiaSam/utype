@@ -30,6 +30,16 @@
   justify-content: center;
   align-items: center; 
   margin-bottom: 10px;
+  transition: .5s;
+
+}
+.levels-item:hover{
+  border: 3px solid #0404046b;
+  background-color: #0000004f;
+  transition: .5s;
+}
+.levels-item:nth-child(n+16){
+  background-color: #f90e0e70;;
 }
 .item-number{
   display: block;
