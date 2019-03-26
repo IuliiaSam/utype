@@ -1,10 +1,16 @@
 import {combineReducers} from 'redux';
-import testReducer from './testReducer';
-import lookWhatInInput from './inputValueRedusers'
+import inputs from './inputReducer';
+import inputText from './inputTextReducer';
+import choosenLevelReducer from '../../Levels/Reducer/choosenLevelReducer'
+
+import setLevelsReducer from '../../Levels/Reducer/setLevelsReducer';
+
 
 const rootReducer = combineReducers({
-   testReducer,
-   lookWhatInInput,
+   inputs,
+   inputText,
+   levels : setLevelsReducer,
+   selected : choosenLevelReducer,
 })
 
 export default rootReducer;
