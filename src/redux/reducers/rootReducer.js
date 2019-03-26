@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import testReducer from './testReducer';
+import inputs from './inputReducer';
+import inputText from './inputTextReducer';
 
 const rootReducer = combineReducers({
-   testReducer,
+   inputs,
+   inputText
 })
 
 export default rootReducer;
