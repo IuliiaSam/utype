@@ -33,10 +33,10 @@ const InputArea = ({
       return;
     }
   };
-
+  const levelArr = selectedLevel.symbols.split('').map((el, idx) => ({key: el, id: idx}));
   return (
     <div>
-      <div className="InputArea__sample">{selectedLevel.symbols}</div>
+      <div className="InputArea__sample">{levelArr.map(el => <span key = {el.id} className={el.id === counter ? 'underline' : 'noUnderline'}>{el.key}</span>)}</div>
       <div
         className="InputArea__textArea"
         tabIndex={-1}
