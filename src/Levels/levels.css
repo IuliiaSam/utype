@@ -1,12 +1,13 @@
 ::-webkit-scrollbar { width: 3px; height: 3px;}   
 ::-webkit-scrollbar-thumb { height: 20px; background-color:  rgba(0, 82, 130, 0.75); border-radius: 50%;}
 .levels-container{
-  padding-top: 150px; 
+  /* padding-top: 150px;  */
   min-height: 100vh;
   background: linear-gradient(to right, #f83600, #fe8c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  flex-direction: column;
 }
 .levels-list{
   background-color: #00000061;

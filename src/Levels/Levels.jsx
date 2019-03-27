@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { getLevels } from '../server';
 import choosenLevelAction from '../Levels/Action/choosenLevelAction';
 
+import Header from '../Header/Header';
+
 import './levels.css';
 
 class Levels extends Component {
@@ -30,6 +32,7 @@ class Levels extends Component {
 
     return (
       <div className="levels-container">
+      <Header />
         <ul className="levels-list">
           {levels.map(level => (
             <li key={level.id} data-id={level.id} className="levels-item">

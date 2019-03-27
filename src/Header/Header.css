@@ -1,0 +1,121 @@
+a {
+  text-decoration: none;
+
+}
+
+.headerLink{
+  color: red;
+  cursor: pointer;
+    text-align: center;
+    display: block;
+}
+.logo {
+    width: 10rem;
+    height: 5rem;
+   
+    
+}
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+.header {
+    width: 100%;
+    background-color: #2196f3;
+    margin-bottom: 2rem;
+}
+
+.headerNavMenu {
+    display: flex;
+    
+    justify-content: space-around;
+}
+
+.headerNavMenuItem{
+    margin-right: 5rem;
+    display: block;
+    font-size: 2rem;
+    
+}
+
+.identyMenu {
+  display: flex;
+  justify-content: flex-start;
+  width: 16rem;
+
+}
+
+.identyMenuItem {
+  margin-left: 0.5rem;
+  display: block;
+  font-size: 1rem;
+  margin-right: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 3rem;
+  width: 6rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #9c27b0;
+  border-color: transparent;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 16px;
+  font-size: 13px;
+  line-height: 1.846;
+  box-shadow: -3px -3px  rgb(80, 19, 82) inset;
+  
+}
+.identyMenuItem:hover {
+  background-color: rgb(80, 19, 82);
+
+}
+
+.identyMenuItem2 {
+  margin-left: 0.5rem;
+  display: block;
+  font-size: 1rem;
+  margin-right: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  text-align: center;
+  line-height: 3rem;
+  width: 6rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 16px;
+  font-size: 13px;
+  line-height: 1.846;
+  border-radius: 3px;
+  user-select: none;
+  color: #ffffff;
+  background-color: #4caf50;
+  border-color: transparent;
+  box-shadow: -3px -3px  rgb(10, 63, 10) inset;
+}
+.identyMenuItem2:hover {
+  background-color: rgb(10, 63, 10);
+
+}
+.regWrap {
+  display: flex;
+}
+
+
+
