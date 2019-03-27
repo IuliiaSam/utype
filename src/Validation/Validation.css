@@ -1,0 +1,15 @@
+/* .InputText{
+    padding: 3rem 6rem;
+} */
+
+.valid {
+ background-color: green;
+ outline: solid 0.1rem green;
+ color: white;
+}
+
+.invalid {
+ background-color: red;
+ outline: solid 0.1rem red;
+ color: white;
+}

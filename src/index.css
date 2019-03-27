@@ -4,3 +4,9 @@
   box-sizing: border-box;
   list-style: none;
 }
+body {
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .1px;
+}

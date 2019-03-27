@@ -1,0 +1,50 @@
+.InputArea__sample {
+  padding: .5rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.InputArea__textArea {
+  min-height: 23vh;
+  font-size: 1.5rem;
+  padding: .5rem;
+  background-color: rgb(255, 248, 240);
+}
+
+.InputArea__textArea:focus {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.26);
+  outline: none;
+}
+
+.cursor {
+	display: inline-block;
+	background-image: url('https://vignette.wikia.nocookie.net/zombidle/images/8/86/Vinque-sign-underscore.png/revision/latest?cb=20170319101043');
+	width: 1.2rem;
+	height: 1.5rem;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	animation: blinker 1.5s cubic-bezier(1,0,0,1) infinite;
+
+	position: relative;
+  /* left: -5px; */
+  bottom: -10px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.valid {
+  background-color: green;
+  outline: solid 0.1rem green;
+  color: white;
+ }
+ 
+ .invalid {
+  background-color: red;
+  outline: solid 0.1rem red;
+  color: white;
+ }
