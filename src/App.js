@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import './App.css';
+import Static from "./Static/Static";
+import {speed, correct} from  './redux/action/actionStatic'
 
 class App extends Component {
-  render() {
+
+  componentDidMount(){
+    this.props.speed(); 
+    this.props.correct();
+  }
+  
+   render () {
+    
     return (
       <div className="App">
-        <h1>Hello</h1>
+               <Static/>
       </div>
-    );
+     );
   }
 }
 
-export default App;
+
+const MDTP =  (dispatch) =>({
+  speed:  function(){
+      dispatch(speed())
+  },
+  correct:  function(){
+      dispatch(correct())
+  },
+})
+
+
+export default connect(null,MDTP) (App);
+
