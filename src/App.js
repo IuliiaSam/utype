@@ -4,6 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import firebase from 'firebase';
+import {addUserStatistics} from './server';
 
 import Levels from '../src/Levels/Levels';
 import './App.css';
@@ -15,6 +16,8 @@ import LoginForm from './LoginForm/LoginForm';
 class App extends Component {
   componentDidMount() {
     const {history} = this.props;
+
+    addUserStatistics({a: 12, b: 'xx'}, '7Uji9soUFbYzLsgjmi1ax2irjjo1');
 
     firebase.auth().onAuthStateChanged(user => {
       if(user) {
