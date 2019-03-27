@@ -10,6 +10,7 @@ import './App.css';
 
 import Registration from './Registration/Registration';
 import LevelScreen from './components/LevelScreen/LevelScreen';
+import LoginForm from './LoginForm/LoginForm';
 
 class App extends Component {
   componentDidMount() {
@@ -33,7 +34,7 @@ class App extends Component {
       {/* <Validation/> */}
         <Switch>
           <Route path='/register' component={Registration} />
-          {/* <Route path='/login' component={Login} /> */}
+          <Route path='/login' component={LoginForm} />
           <Route exact path="/levels" component={Levels} />
           <Route path={`/levels/:id`} component={LevelScreen} />
         </Switch>

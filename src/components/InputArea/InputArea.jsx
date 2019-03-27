@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React from 'react'; 
 import { connect } from 'react-redux';
 
 import { typigData } from '../../redux/actions/typingActions';
