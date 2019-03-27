@@ -1,8 +1,8 @@
 .Monitor {
-  border: 2rem solid black;
+  border: .8rem solid black;
   border-radius: 8px;
-  padding: 1rem;
-  min-height: 22rem;
+  min-height: 21rem;
   max-width: 52rem;
   margin: 0 auto;
+  border-bottom-width: 2rem;
 }

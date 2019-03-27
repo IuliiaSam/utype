@@ -46,9 +46,9 @@ const InputArea = ({
       >
         <p>
           {userArr.map(el => (
-            <span className={el.isValid ? 'valid' : 'invalid'}>{el.key}</span>
+            <span key={el.id} className={el.isValid ? 'valid' : 'invalid'}>{el.key}</span>
           ))}
-          {isTextAreaFocused ? <span class="cursor" /> : null}
+          {isTextAreaFocused ? <span className="cursor" /> : null}
         </p>
       </div>
     </div>

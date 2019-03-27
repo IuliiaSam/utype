@@ -21,7 +21,7 @@ class App extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if(user) {
         console.log("Logined");
-        history.push('/')
+        history.push('/levels')
       } else {
         console.log("Not logined");
         history.push('/login')
@@ -35,9 +35,9 @@ class App extends Component {
       <div className="App">
       {/* <Validation/> */}
         <Switch>
-          <Route exact path="/" component={Levels} />
-          <Route path={`/:id`} component={LevelScreen} />
           <Route path='/login' component={Registration} />
+          <Route exact path="/levels" component={Levels} />
+          <Route path={`/levels/:id`} component={LevelScreen} />
         </Switch>
         {/* <Form /> */}
       </div>

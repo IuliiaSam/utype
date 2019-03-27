@@ -34,7 +34,7 @@ class Levels extends Component {
           {levels.map(level => (
             <li key={level.id} data-id={level.id} className="levels-item">
               <Link
-                to={`/${level.title}`}
+                to={`/levels/${level.title}`}
                 data-id={level.id}
                 className="item-number"
                 onClick={e => chooseLevel(e, levels)}
