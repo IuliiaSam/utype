@@ -1,4 +1,6 @@
 .btn {
+    cursor: pointer;
+    outline: none;
     color: #ffffff;
     background-color: #4caf50;
     text-transform: uppercase;
@@ -10,6 +12,18 @@
     border: none;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
     transition: all 0.4s;
+}
+.btn:hover {
+    background-color: #439a46;
+}
+.btn:disabled{
+    cursor: not-allowed;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    box-shadow: none;
+}
+.btn:disabled:hover{
+    background-color: #4caf50;
 }
 .btn-google::before {
     content: "Google+";
