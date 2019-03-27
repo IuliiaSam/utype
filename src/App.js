@@ -7,10 +7,12 @@ import firebase from 'firebase';
 
 import Levels from '../src/Levels/Levels';
 import './App.css';
-import Form from './components/Form';
-import Monitor from './components/Monitor/Monitor';
+// import Form from './components/Form';
+// import Monitor from './components/Monitor/Monitor';
+// import Validation from './Validation/Validation';
 
 import Registration from './Registration/Registration';
+import LevelScreen from './components/LevelScreen/LevelScreen';
 
 class App extends Component {
   componentDidMount() {
@@ -31,9 +33,10 @@ class App extends Component {
 
     return (
       <div className="App">
+      {/* <Validation/> */}
         <Switch>
           <Route exact path="/" component={Levels} />
-          {/* <Route path={`/:id`} component={Monitor} /> */}
+          <Route path={`/:id`} component={LevelScreen} />
           <Route path='/login' component={Registration} />
         </Switch>
         {/* <Form /> */}

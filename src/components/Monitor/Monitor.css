@@ -2,4 +2,7 @@
   border: 2rem solid black;
   border-radius: 8px;
   padding: 1rem;
+  min-height: 22rem;
+  max-width: 52rem;
+  margin: 0 auto;
 }
