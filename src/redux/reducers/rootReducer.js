@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import testReducer from './testReducer';
+import inputTracking from './inputTrackingReducer';
+import pecherskiyArr from './pecherskiyReducer';
 
 const rootReducer = combineReducers({
-   testReducer,
+   inputTracking,
+   pecherskiyArr,
 })
 
 export default rootReducer;

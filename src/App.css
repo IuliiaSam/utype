@@ -1,0 +1,7 @@
+#input {
+    display: block;
+    line-height: 2rem;
+    height: 2rem;
+    width: 100%;
+    border: 1px solid gray;
+}
