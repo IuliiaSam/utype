@@ -11,10 +11,10 @@ export default  class App extends Component {
 
     return (
       <div className="App">
-        {/* <LoginForm/> */}
         <Switch>
-          <Route exact path="/" component={Levels} />
-          <Route path={`/:id`} component={Monitor} />
+          {/* <Route exact path="/" component={Levels} /> */}
+          {/* <Route path={`/:id`} component={Monitor} /> */}
+          <Route path={`/`} component={LoginForm} />
         </Switch>
         {/* <Form /> */}
       </div>
