@@ -78,8 +78,13 @@ a {
   padding: 6px 16px;
   font-size: 13px;
   line-height: 1.846;
+  box-shadow: -3px -3px  rgb(80, 19, 82) inset;
+  
 }
+.identyMenuItem:hover {
+  background-color: rgb(80, 19, 82);
 
+}
 
 .identyMenuItem2 {
   margin-left: 0.5rem;
@@ -108,8 +113,12 @@ a {
   color: #ffffff;
   background-color: #4caf50;
   border-color: transparent;
+  box-shadow: -3px -3px  rgb(10, 63, 10) inset;
 }
+.identyMenuItem2:hover {
+  background-color: rgb(10, 63, 10);
 
+}
 .regWrap {
   display: flex;
 }
