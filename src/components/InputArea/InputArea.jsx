@@ -24,33 +24,40 @@ const InputArea = ({
   blur,
   isTextAreaFocused,
 }) => {
+
   const actions = e => {
     const regex = /^.{1}$/;
     if (e.key.match(regex)) {
       counterAction();
-      userArrAction(e.key, counter, selectedLevel);
+      userArrAction(e.key, counter, userArr);
     } else {
       return;
     }
   };
-  const levelArr = selectedLevel.symbols.split('').map((el, idx) => ({key: el, id: idx}));
+
+  const styles = {
+    valid: {
+      backgroundColor: 'green',
+    },
+    invalid: {
+      backgroundColor: 'red',
+    },
+    defStyle: {
+      backgroundColor: 'none',
+    }  
+  }
+ 
   return (
     <div>
-      <div className="InputArea__sample">{levelArr.map(el => <span key = {el.id} className={el.id === counter ? 'underline' : 'noUnderline'}>{el.key}</span>)}</div>
-      <div
-        className="InputArea__textArea"
-        tabIndex={-1}
-        onKeyDown={actions}
-        onFocus={focus}
-        onBlur={blur}
-      >
-        <p>
-          {userArr.map(el => (
-            <span key={el.id} className={el.isValid ? 'valid' : 'invalid'}>{el.key}</span>
-          ))}
-          {isTextAreaFocused ? <span className="cursor" /> : null}
-        </p>
+      <div className="InputArea__sample"
+              tabIndex={-1}
+              onKeyDown={actions}
+              >
+      {userArr.map(el => 
+      <span key = {el.id} style={el.isValid === true ? styles.valid : el.isValid === false ? styles.invalid : styles.defStyle} className={
+        el.id === counter ? 'underline' : 'noUnderline'}>{el.key}</span>)}
       </div>
+     
     </div>
   );
 };

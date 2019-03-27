@@ -49,11 +49,12 @@
   color: white;
  }
  .underline {
-  /* text-decoration: underline; */
-  text-shadow: -270px 48px 0 rgba(170, 12, 233, 0.555);
+  text-decoration: underline;
+  /* text-shadow: -273px 48px 0 rgba(170, 12, 233, 0.555); */
+
   
  }
- .noUnderline {
-  /* text-decoration: none; */
-  box-shadow: none;
+ .noUnderline { 
+  text-decoration: none;
+  /* box-shadow: none; */
  }
