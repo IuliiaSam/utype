@@ -79,6 +79,7 @@ a {
   font-size: 13px;
   line-height: 1.846;
   box-shadow: -3px -3px  rgb(80, 19, 82) inset;
+  transition: background-color 1s;
   
 }
 .identyMenuItem:hover {
@@ -114,6 +115,7 @@ a {
   background-color: #4caf50;
   border-color: transparent;
   box-shadow: -3px -3px  rgb(10, 63, 10) inset;
+  transition: background-color 1s;
 }
 .identyMenuItem2:hover {
   background-color: rgb(10, 63, 10);
