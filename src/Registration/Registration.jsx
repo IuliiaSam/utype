@@ -11,7 +11,7 @@ const Registration = ({readInputValue, inputs}) => {
     return (
         <form className="form flex-column center-box shadow max-width-500 padding-all-25" onSubmit={e => { e.preventDefault(); createUserWithEmailAndPassword(inputs.email, inputs.password, inputs.name)}} >
 
-            <h1 className="text-center">Sing Up</h1>
+            <h1 className="text-center">Sign Up</h1>
 
             <div className="form-group flex-end">
                 <label for="email" class="input-label"><span>Email</span></label>
