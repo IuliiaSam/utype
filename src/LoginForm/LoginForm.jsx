@@ -10,6 +10,7 @@ import { inputData } from '../redux/actions/LoginInputActions';
 
 const LoginForm = ({ inputData, inputs }) => {
   return (
+      <div className="LoginForm">
     <form
       onSubmit={e => {
         e.preventDefault();
@@ -19,8 +20,8 @@ const LoginForm = ({ inputData, inputs }) => {
       method="post"
     >
       <h2 className="h2 text-center">Sign In</h2>
-      <div className="form-group flex-end">
-        <label htmlFor="email">Email</label>
+      {/* <div className="form-group flex-end">
+        <label htmlFor="email">Email</label> */}
         <input
           onChange={e => inputData(e)}
           value={inputs.email}
@@ -29,9 +30,9 @@ const LoginForm = ({ inputData, inputs }) => {
           name="email"
           placeholder="Enter your email"
         />
-      </div>
-      <div className="form-group flex-end">
-        <label htmlFor="password">Password</label>
+      {/* </div> */}
+      {/* <div className="form-group flex-end">
+        <label htmlFor="password">Password</label> */}
         <input
           onChange={e => inputData(e)}
           value={inputs.password}
@@ -40,18 +41,19 @@ const LoginForm = ({ inputData, inputs }) => {
           name="password"
           placeholder="Enter your password"
         />
-      </div>
+      {/* </div> */}
       {/* <a href="#" className="text-center form-group">
         Forgot Password?
       </a> */}
       <button className="btn" type="submit" label="Sign In">
         Sign In
       </button>
-      <small className="text-center">
-        <span>Need to create an account?</span>
-        <NavLink to='/register' >Sign Up</NavLink>
-      </small>
+      <p className="text-center">
+        <span>Need to create an account? </span>
+        <NavLink to='/register' className='link'>Sign Up</NavLink>
+      </p>
     </form>
+    </div>
   );
 };
 
