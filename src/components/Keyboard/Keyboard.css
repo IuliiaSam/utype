@@ -1,0 +1,263 @@
+.Keyboard {
+  background-color: #eee;
+  padding: 1rem;
+  min-height: 22rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg);
+  transform-origin: 0 0;
+
+  border-radius: 10px;
+}
+
+.key {
+  width: 51px;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  line-height: 50px;
+  text-align: center;
+  font-size: .8rem;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.1), inset 0 0 2px rgba(255,255,255,0.5);
+  border: 1px solid rgba(112,112,112,0.5);
+  border-radius: 5px;
+  background-clip: padding-box;
+  font-weight: bold;
+  color: #333;
+}
+
+.key sup {
+  font-size: 90%;
+  margin: 2px;
+  top: -0.5rem;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.key-tab, .key-8, .key-backspace {
+  width: 85px;
+}
+
+.key-13 {
+  width: 89px;
+  /* border-bottom-right-radius: 5px; */
+}
+
+.key-20 {
+  width: 102px;
+}
+
+.key-lshift {
+  width: 124px;
+}
+
+.key-32 {
+  width: 306px;
+}
+
+.key-rshift {
+  width: 122px;
+}
+
+.key-darrow, .key-uarrow {
+  height: 25px;
+  line-height: 25px;
+}
+
+.key-96 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 20, 30, 1, 1)
+  }
+.key-49 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 74, 30, 1, 1)
+  }
+.key-50 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 128, 30, 1, 1)
+  }
+.key-51 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 182, 30, 1, 1)
+  }
+.key-52 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 236, 30, 1, 1)
+  }
+.key-53 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 290, 30, 1, 1)
+  }
+.key-54 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 344, 30, 1, 1)
+  }
+.key-55 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 398, 30, 1, 1)
+  }
+.key-56 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 452, 30, 1, 1)
+  }
+.key-57 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 506, 30, 1, 1)
+  }
+.key-48 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 560, 30, 1, 1)
+  }
+.key-45 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 614, 30, 1, 1)
+  }
+.key-61 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 668, 30, 1, 1)
+  }
+.key-8 {
+ transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 722, 30, 1, 1)
+ }
+.key-tab {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 20, 84, 1, 1)
+  }
+.key-113 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 109, 84, 1, 1)
+  }
+.key-119 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 163, 84, 1, 1)
+  }
+.key-101 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 217, 84, 1, 1)
+  }
+.key-114 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 271, 84, 1, 1)
+  }
+.key-116 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 325, 84, 1, 1)
+  }
+.key-121 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 379, 84, 1, 1)
+  }
+.key-117 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 433, 84, 1, 1)
+  }
+.key-105 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 487, 84, 1, 1)
+  }
+.key-111 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 541, 84, 1, 1)
+  }
+.key-112 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 595, 84, 1, 1)
+  }
+.key-91 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 649, 84, 1, 1)
+  }
+.key-93 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 703, 84, 1, 1)
+  }
+.key-92 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 757, 84, 1, 1)
+  }
+.key-20 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 20, 138, 1, 1)
+  }
+.key-97 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 126, 138, 1, 1)
+  }
+.key-115 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 180, 138, 1, 1)
+  }
+.key-100 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 234, 138, 1, 1)
+  }
+.key-102 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 288, 138, 1, 1)
+  }
+.key-103 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 340, 138, 1, 1)
+  }
+.key-104 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 396, 138, 1, 1)
+  }
+.key-106 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 450, 138, 1, 1)
+  }
+.key-107 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 504, 138, 1, 1)
+  }
+.key-108 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 558, 138, 1, 1)
+  }
+.key-59 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 612, 138, 1, 1)
+  }
+.key-39 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 666, 138, 1, 1)
+  }
+.key-13 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 720, 138, 1, 1)
+  }
+.key-lshift {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 20, 192, 1, 1)
+  }
+.key-122 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 148, 192, 1, 1)
+  }
+.key-120 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 202, 192, 1, 1)
+  }
+.key-99 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 256, 192, 1, 1)
+  }
+.key-118 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 310, 192, 1, 1)
+  }
+.key-98 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 364, 192, 1, 1)
+  }
+.key-110 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 418, 192, 1, 1)
+  }
+.key-109 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 472, 192, 1, 1)
+  }
+.key-44 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 526, 192, 1, 1)
+  }
+.key-46 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 580, 192, 1, 1)
+  }
+.key-47 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 634, 192, 1, 1)
+  }
+.key-rshift {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 688, 192, 1, 1)
+  }
+.key-fn {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 20, 246, 1, 1)
+  }
+.key-ctrl {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 74, 246, 1, 1)
+  }
+.key-lalt {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 128, 246, 1, 1)
+  }
+.key-lmeta {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 182, 246, 1, 1)
+  }
+.key-32 {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 236, 246, 1, 1)
+  }
+.key-rmeta {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 546, 246, 1, 1)
+  }
+.key-ralt {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 600, 246, 1, 1)
+  }
+
+.key-larrow {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 654, 246, 1, 1)
+}
+.key-uarrow {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 706, 246, 1, 1)
+}
+.key-darrow {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 706, 271, 1, 1)
+}
+.key-rarrow {
+  transform:matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0,  1, 0, 758, 246, 1, 1)
+}

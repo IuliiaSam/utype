@@ -1,0 +1,93 @@
+.Header__link, .Header__link:visited {
+  text-decoration: none;
+  color: #555;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+.Header__link:hover {
+  top: 1px;
+  text-shadow: 0 -1px 4px #4caf50;
+  color: #4caf50;
+}
+
+
+.headerLink{
+  color: red;
+  cursor: pointer;
+    text-align: center;
+    display: block;
+}
+.logo {
+    height: 10rem;
+    margin-top: 1rem;
+    
+}
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+.header {
+  width: 10rem;
+  height: 100vh;
+  position: fixed;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(153, 153, 153, 0.527);
+  border-radius: 5px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerNavMenu {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-direction: column;
+}
+
+.headerNavMenuItem{
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+    /* text-decoration: underline; */
+}
+
+.identyMenu {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.identyMenuItem {
+  background-color: #4CAF50;
+  color: #ffffff;
+  text-transform: capitalize;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: .5rem 2.5rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  font-size: 1rem;
+  /* width: 100%; */
+}
+
+.identyMenuItem:hover {
+  background-color: #4caf4fcc;
+}
+
+.regWrap {
+  display: flex;
+}
+
+
+

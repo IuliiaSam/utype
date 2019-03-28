@@ -1,0 +1,9 @@
+.Speedometer {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+.speedometer{
+    height: 10rem;
+  }

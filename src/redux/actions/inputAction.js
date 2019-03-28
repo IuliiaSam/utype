@@ -1,11 +1,9 @@
-const inputAction = (e, pecherskiyArr) => {
+export const inputAction = (e, userArr) => {
 
     return {
         type: 'INPUT',
         lastKey: e.key,
-        pecherskiyArr: pecherskiyArr,
+        userArr: userArr,
     }
 
 }
-
-export default inputAction;

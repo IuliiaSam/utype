@@ -1,17 +1,21 @@
 const obj = {
-    inputString: '',
-    wordStartTime: '',
-    wordEndTime: '',
-    spaceBarPressed: false,
+    keyStrokes: 0,
+    endOfLine: null,
+    wordStartTime: 0,
+    wordStartMark: 0,
+    wordEndTime: 0,
+    wordEndMark: 0,
     charactersPerMinute: 0,
     wordsPerMinute: 0,
     averageSpeed: 0,
     speedHistory: [],
-    levelStart: '',
-    levelFinish: '',
+    levelStart: 0,
+    levelFinish: 0,
     totalCharacters: 0,
+    typedCharacters: 0,
     numberOfErrors: 0,
     percentOfErrors: 0,
+    accuracy: 0,
 }
 
 const inputTracking = (state=obj, action) => {
@@ -20,98 +24,75 @@ const inputTracking = (state=obj, action) => {
 
         case 'INPUT':
 
-            let copyState = {...state};
+            let State = {...state};
 
-            // визначаємо keyCode клавіші, яка була натиснута останньою:
-            const charCode = action.lastKey.charCodeAt();
+            if (State.keyStrokes === 0) {State.levelStart = Date.now()};
+
+            State.keyStrokes++;
             
-            if (charCode !== 32) {
-            // якщо остання клавіша НЕ Є ПРОБІЛОМ:
-            console.log('натиснули клавішу ', action.lastKey, charCode);
+            State.endOfLine = action.userArr.length-1;
+
+            const lastKey = action.userArr.find(el=>el.id===Number(State.keyStrokes-1));
+
+            lastKey.time = Date.now();
 
 
-                if (charCode === 65 || charCode === 67) {
-                // якщо остання клавіша - це ALT чи CONTROL:
-                console.log('натиснули спецсимвол');
-                    
-                    // текст в інпуті не змінюється 
-                    copyState.inputString = copyState.inputString.slice();
+            if (lastKey.key !== ' ' && lastKey.id !== State.endOfLine) {
 
-                } else {
-                // якщо остання клавіша - це ЛІТЕРА / ЦИФРА:
-                console.log ('натиснули клавішу ', action.lastKey)
-
-                    // відображаємо текст в інпуті
-                    copyState.inputString += action.lastKey;
-
-                    // засікаємо час старту нового слова
-                    copyState.wordStartTime = state.wordStartTime ? state.wordStartTime : Number(Date.now());
-                    copyState.levelStart = state.levelStart ? state.levelStart : Number(Date.now());
-
-                    // знімаємо прапорець пробіла
-                    copyState.spaceBarPressed = true ? false : copyState.spaceBarPressed;
-
-                }
+                if (!State.wordStartTime) {
+                    State.wordStartMark = lastKey.id;
+                    State.wordStartTime = lastKey.time; 
+                }  
 
             } else {
-            // якщо остання клавіша - це ПРОБІЛ:
-
-                if (copyState.spaceBarPressed) {
-                // якщо пробіл натиснули ВДРУГЕ:
-                console.log('пробіл натиснули вдруге');
+             
+                // коли користувач натиснув на пробіл, розраховуємо швидкість друку (у літерах на хвилину)
+                if (lastKey.id !== State.endOfLine) {
+                    State.wordEndMark = lastKey.id;
+                    State.wordEndTime = action.userArr[lastKey.id-1].time;
+                    State.levelFinish = action.userArr[lastKey.id-1].time;
+                } else {
+                    State.wordEndMark = lastKey.id;
+                    State.wordEndTime = lastKey.time;
+                    State.levelFinish = lastKey.time;
+                }
+                const wordCharacters = State.wordEndMark-State.wordStartMark;
                 
-                    // текст в інпуті не змінюється 
-                    copyState.inputString = copyState.inputString.slice();
-                
-                    //wordStartTime не чіпаємо
+                const wordDuration = (State.wordEndTime - State.wordStartTime)/1000;
 
-                } else {      
-                // якщо пробіл натиснули ВПЕРШЕ:
-                console.log('пробіл');
-                    
-                    // відображаємо в інпуті текст
-                    copyState.inputString += action.lastKey;
+                State.charactersPerMinute = Math.floor(wordCharacters * 60 / wordDuration);
 
-                    // ставимо прапорець, що був натиснутий пробіл
-                    copyState.spaceBarPressed = true;
+                // додаємо значення швидкості в масив зі статистикою та розраховуємо середню швидкість (у літерах на хвилину)
+                State.speedHistory = State.speedHistory ? [...State.speedHistory, Number(State.charactersPerMinute)] : [Number(State.charactersPerMinute)];
+                State.averageSpeed = Math.round((State.speedHistory.reduce((acc,el)=>acc+el, 0)) / State.speedHistory.length);
 
-                    // визначаємо останнє слово в рядку
-                    const wordsArr = copyState.inputString.split(' ');
-                    const lastWordIdx = wordsArr.length-1;
-                    const lastWord = wordsArr[lastWordIdx-1];
-
-                    // визначаємо момент, коли натиснули пробіл, та розраховуємо швидкість друку (у літерах на хвилину)
-                    copyState.wordEndTime = Number(Date.now());
-                    copyState.levelFinish = Number(Date.now());
-                    const wordDuration = (copyState.wordEndTime - copyState.wordStartTime)/1000;
-                    const wordCharacters = lastWord.length-1;
-                    const charactersPerMinute = Math.floor(wordCharacters * 60 / wordDuration);
-
-                    // записуємо значення швидкості у charactersPerMinute (для спідометра) 
-                    copyState.charactersPerMinute = charactersPerMinute;
-
-                    // також додаємо значення швидкості в масив зі статистикою та розраховуємо середню швидкість
-                    copyState.speedHistory = copyState.speedHistory ? [...copyState.speedHistory, Number(charactersPerMinute)] : [Number(charactersPerMinute)];
-                    copyState.averageSpeed = Math.round((copyState.speedHistory.reduce((acc,el)=>acc+el, 0)) / copyState.speedHistory.length);
-
-                    // встановлюємо нульові значення для обчислення швидкості наступного слова
-                    copyState.wordStartTime = '';
-                    copyState.wordEndTime = '';
-
-                } 
+                State.wordStartMark = 0;
+                State.wordStartTime = 0;
+                State.wordEndMark = 0;
+                State.wordEndTime = 0;
             }
 
             // розрахунок кількості слів на хвилину
-            const levelDuration = (copyState.levelFinish - copyState.levelStart) / 1000;
-            const totalWords = copyState.speedHistory.length;
-            copyState.wordsPerMinute = Math.floor(totalWords * 60 / levelDuration);
+            const levelDuration = (State.levelFinish - State.levelStart) / 1000;
+            const totalWords = State.speedHistory.length;
+            State.wordsPerMinute = Math.floor(totalWords * 60 / levelDuration);
 
-            // розрахунок точності друку
-            copyState.totalCharacters = Number(action.pecherskiyArr.length);
-            copyState.numberOfErrors = action.pecherskiyArr.filter(el=>!el.isCorrect).length;
-            copyState.percentOfErrors = Math.round(copyState.numberOfErrors * 100 / copyState.totalCharacters) + '%';
+            // розрахунок кількості помилок та точності друку у %
+            State.totalCharacters = Number(action.userArr.length);
 
-            return copyState;
+            State.typedCharacters = Number(action.userArr.filter(el=>el.isValid!==null).length);
+            console.log('typed', State.typedCharacters);
+            
+
+            State.numberOfErrors = Number(action.userArr.filter(el=>el.isValid===false).length);
+            console.log('numberOfErrors', State.numberOfErrors);
+
+            State.percentOfErrors = Math.round(State.numberOfErrors * 100 / State.typedCharacters);
+            console.log('percentOfErrors', State.percentOfErrors);
+
+            State.accuracy = 100 - State.percentOfErrors;
+
+            return State;
 
         default: 
             return state;

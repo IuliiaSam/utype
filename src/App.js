@@ -1,57 +1,53 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import inputAction from './redux/actions/inputAction';
+
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import firebase from 'firebase';
+
+import Levels from '../src/Levels/Levels';
 import './App.css';
-import Speedometer from './components/Speedometer/Speedometer';
+
+import Registration from './Registration/Registration';
+import LevelScreen from './components/LevelScreen/LevelScreen';
+import LoginForm from './LoginForm/LoginForm';
 
 class App extends Component {
+  componentDidMount() {
+    const {history} = this.props;
 
+    firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        console.log("Logined");
+        history.push('/levels')
+      } else {
+        console.log("Not logined");
+        history.push('/login')
+      }
+    })
+  }
   render() {
-    const {inputTracking, inputAction, pecherskiyArr} = this.props;
+
     return (
 
       <div className="App">
-
-        <ul>
-          <li>
-            <p>characters per minute (last word): {inputTracking.charactersPerMinute}</p>
-          </li>
-          <li>
-            <p>characters per minute (average speed): {inputTracking.averageSpeed}</p>
-          </li>
-          <li>
-            <p>words per minute: {inputTracking.wordsPerMinute}</p>
-          </li>
-          <li>
-            <p>number of errors: {inputTracking.numberOfErrors}</p>
-          </li>
-          <li>
-            <p>percent of errors: {inputTracking.percentOfErrors}</p>
-          </li>
-        </ul>
-        <br/>
-
-        <div id="input" tabIndex="-1" onKeyDown={e=>inputAction(e, pecherskiyArr)}>{inputTracking.inputString}
-        </div>
-
-        <Speedometer charactersPerMinute={inputTracking.charactersPerMinute}/>
-
+      {/* <Validation/> */}
+        <Switch>
+          <Route path='/register' component={Registration} />
+          <Route path='/login' component={LoginForm} />
+          <Route exact path="/levels" component={Levels} />
+          <Route path={`/levels/:id`} component={LevelScreen} />
+        </Switch>
+        {/* <Form /> */}
       </div>
     );
   }
 }
 
-function reducerProps (state) {
+function mapStateToProps(state) {
   return {
-      inputTracking: state.inputTracking,
-      pecherskiyArr: state.pecherskiyArr,
-  }
+    levelName: state.selected.title
+  };
 }
 
-function actionProps (dispatch) {
-  return {
-    inputAction: function(e, pecherskiyArr) { dispatch(inputAction(e, pecherskiyArr)) },
-  }
-}
-
-export default connect (reducerProps, actionProps) (App);
+export default withRouter(connect(mapStateToProps)(App));

@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactSpeedometer from "react-d3-speedometer";
+import './Speedometer.css';
 
 const Speedometer = ({charactersPerMinute}) => {
     return (
-            <div>
+            <div className='Speedometer'>
                 <ReactSpeedometer 
                     ringWidth={40}
-                    textColor="white"
+                    textColor="black"
                     minValue={0}
-                    maxValue={700}
+                    maxValue={1200}
                     value={charactersPerMinute}
                     segments={3}
                     startColor="lightgreen"
@@ -16,6 +17,8 @@ const Speedometer = ({charactersPerMinute}) => {
                     needleColor="black"
                     needleTransitionDuration={3000}
                     needleTransition="easeElastic"
+                    width={270}
+                    height={270}
                 />
             </div>
     )
