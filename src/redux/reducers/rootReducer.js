@@ -5,7 +5,8 @@ import inputs from './inputReducer';
 import inputText from './inputTextReducer';
 import choosenLevelReducer from '../../Levels/Reducer/choosenLevelReducer'
 import setLevelsReducer from '../../Levels/Reducer/setLevelsReducer';
-import toggleFocus from '../../redux/reducers/toggleFocusReducer';
+import toggleFocus from '../reducers/toggleFocusReducer';
+import setDevLevelsReducer from '../reducers/setDevLevelsReducer';
 
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
    counter,
    userArr,
    toggleFocus,
+   devLevels: setDevLevelsReducer,
 })
 
 export default rootReducer;

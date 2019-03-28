@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 
 import getLevelsAction from './Levels/Action/getLevelsAction';
+import getDevmodeLevelsAction from './redux/actions/getDevmodeLevelsAction';
 
 const config = {
   apiKey: 'AIzaSyBGJudEPb9UtQOikd8wUxdaKE3M-2kjbCI',
@@ -51,6 +52,7 @@ export function signOut() {
     .then(() => console.log('sign-out successfull'))
     .catch(err => console.log(err));
 }
+
 export function addUserStatistics(levelStat, userID) {
   firebase
     .database()
@@ -79,3 +81,9 @@ export const getLevels = () => dispatch =>
     .ref('levels')
     .once('value')
     .then(snap => dispatch(getLevelsAction(snap.val())));
+
+export const getDevmodeLevels = () => dispatch =>
+  firebaseDB
+    .ref('devLevels')
+    .once('value')
+    .then(snap => dispatch(getDevmodeLevelsAction(snap.val())));
