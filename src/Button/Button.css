@@ -1,0 +1,19 @@
+.btn {
+    color: #ffffff;
+    background-color: #4caf50;
+    text-transform: uppercase;
+    user-select: none;
+    padding: 10px 16px;
+    font-size: 17px;
+    line-height: 1.3333333;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    transition: all 0.4s;
+}
+.btn-google::before {
+    content: "Google+";
+}
+.btn-facebook::before {
+    content: "Facebook";
+}

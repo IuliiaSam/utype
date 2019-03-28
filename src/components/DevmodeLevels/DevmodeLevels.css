@@ -1,0 +1,25 @@
+.item-number--dev {
+  font-size: 1rem;
+  background-color: #0d1a3b;
+  box-shadow: 0 2px 10px #272727;
+}
+
+.levels-item--dev:nth-child(n + 16) {
+  /* background-color: #fff; */
+}
+
+.item-number--dev:hover {
+  background-color: #407da1;
+}
+
+.levels-container--dev {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.486),
+      rgba(0, 0, 0, 0.473)
+    ),
+    url('https://img2.goodfon.ru/original/2560x1600/8/8c/hacker-programmisty-computer-code-kompiutery-khaker-technolo.jpg');
+}
+
+.header--dev {
+  background-color: #000;
+}

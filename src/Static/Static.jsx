@@ -1,86 +1,115 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {Line} from 'react-chartjs-2';
+import { connect } from 'react-redux';
+import { Line } from 'react-chartjs-2';
+import moment from 'moment';
+
+import { getUserStat } from '../server';
+import { getUserStatistics } from '../redux/actions/userStatisticsAction';
+
 import './Static.css';
+import Header from '../Header/Header';
 
 class Static extends Component {
-    render() {
-        return (
+  componentDidMount = () => {
+    const userID = localStorage.getItem('uid');
+
+    getUserStat(userID).then(statArr => this.props.getUserStatistics(statArr));
+  };
+
+  render() {
+    const { stats } = this.props;
+    console.log(stats);
+
+    // accuracy: 2
+    // averageSpeed: 3592
+    // charactersPerMinute: 4800
+    // levelFinish: 1553781689168
+    // percentOfErrors: 98
+    // wordsPerMinute: 169
+
+    let datesArr = [];
+    let avgSpeedArr = [];
+    let accurArr = [];
+    stats.map(el => {
+      datesArr.push(moment(el.levelFinish).format('DD/MM/YY'));
+      avgSpeedArr.push(el.averageSpeed);
+      accurArr.push(el.accuracy);
+    });
+
+    const avgSpeedData ={
+        labels: datesArr,
+        datasets: [
+            {
+                data: avgSpeedArr,
+                label: 'Прогресс скорости',
+            }
+        ]
+    }
+
+    const avgAccurData ={
+        labels: datesArr,
+        datasets: [
+            {
+                data: accurArr,
+            }
+        ]
+    }
+
+    return (
+      <div>
+        <Header themeMode='header' />
+
         <div className="wrapChart">
-            <div className='LineChart'>
+          <div className="LineChart">
             <Line
-                data={this.props.arr.historyDate}
-                options={{
-                    title: {
-                        display: true,
-                        text: "Прогресс скорости",
-                        fontSize: 14,
-                    },
-                    legend: {
-                        display: true,
-                        position: "right",
-                    },
-                    maintainAspectRatio: false,
-                }}    
+              data={avgSpeedData}
+              options={{
+                title: {
+                  display: true,
+                  text: 'Прогресс скорости',
+                  fontSize: 14
+                },
+                legend: {
+                  display: false,
+                  position: 'right'
+                },
+                maintainAspectRatio: false
+              }}
             />
-              </div>
-            <div className='LineChart chart2'>
+          </div>
+          <div className="LineChart chart2">
             <Line
-                data={this.props.cor.historyDate}
-                options={{
-                    title: {
-                        display: true,
-                        text: "Прогресс правильного ввода",
-                        fontSize: 12,
-                    },
-                    legend: {
-                        display: true,
-                        position: "right",
-                    },
-                    maintainAspectRatio: true,
-                }}    
+              data={avgAccurData}
+              options={{
+                title: {
+                  display: true,
+                  text: 'Прогресс правильного ввода',
+                  fontSize: 12
+                },
+                legend: {
+                  display: false,
+                  position: 'right'
+                },
+                maintainAspectRatio: true
+              }}
             />
-              </div>
-              </div>
- );
- }         
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-const MSTP =  (state) =>({
-    arr: state.speedprogression,
-    cor: state.correctinput,
-  })
+const MSTP = state => ({
+  arr: state.speedprogression,
+  cor: state.correctinput,
+  stats: state.userStatistics
+});
 
-  export default connect(MSTP) (Static);
-  
+const MDTP = dispatch => ({
+  getUserStatistics: statArr => dispatch(getUserStatistics(statArr))
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default connect(
+  MSTP,
+  MDTP
+)(Static);

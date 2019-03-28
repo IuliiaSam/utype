@@ -1,0 +1,19 @@
+.Speedometer {
+    display: flex;
+    justify-content: center;
+  }
+
+.speedometer{
+    height: 3.2rem;
+    position: relative;
+    top: -10px;
+  }
+
+  .speedometer .label {
+    fill: red !important;
+  }
+
+  .speedometer .segment-value {
+    fill: red !important;
+    display: none;
+  }
