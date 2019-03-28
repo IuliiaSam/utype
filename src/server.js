@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 
 import getLevelsAction from './Levels/Action/getLevelsAction';
+import getDevmodeLevelsAction from './redux/actions/getDevmodeLevelsAction';
 
 const config = {
   apiKey: 'AIzaSyBGJudEPb9UtQOikd8wUxdaKE3M-2kjbCI',
@@ -38,9 +39,10 @@ export function createUserWithEmailAndPassword(email, password, name) {
 }
 
 export function signInWithEmailAndPassword(email, password) {
-  firebase
+  return firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
+    .then(d => d.user.uid)
     .catch(err => console.log(err));
 }
 
@@ -51,15 +53,17 @@ export function signOut() {
     .then(() => console.log('sign-out successfull'))
     .catch(err => console.log(err));
 }
+
 export function addUserStatistics(levelStat, userID) {
   firebase
     .database()
     .ref('users/' + userID)
     .once('value')
     .then(snap => snap.val())
+    // .then(d => console.log(d))
     .then(data => {
       data.statistics = data.hasOwnProperty('statistics')
-        ? data.statistics.push(levelStat)
+        ? [...data.statistics, levelStat]
         : [levelStat];
       return data;
     })
@@ -71,6 +75,12 @@ export function addUserStatistics(levelStat, userID) {
     );
 }
 
+// export function getUserId () {
+//   firebase.database().ref('users').once('value').then(snap => snap.val()).then(d=>console.log(d))
+// }
+
+// getUserId();
+
 // ссылка на базу данных
 const firebaseDB = firebase.database();
 
@@ -79,3 +89,9 @@ export const getLevels = () => dispatch =>
     .ref('levels')
     .once('value')
     .then(snap => dispatch(getLevelsAction(snap.val())));
+
+export const getDevmodeLevels = () => dispatch =>
+  firebaseDB
+    .ref('devLevels')
+    .once('value')
+    .then(snap => dispatch(getDevmodeLevelsAction(snap.val())));

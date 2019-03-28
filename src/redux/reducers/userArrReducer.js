@@ -1,24 +1,31 @@
-function userArr (state=[], action){
-    switch(action.type) {
-        case 'PUSH':
-        if(action.id < state.length){
-            if(action.key === state[action.id].key) {
-                state[action.id].isValid = true
-            } else {
-                state[action.id].isValid = false
-            }
-        }else {
-            alert('Кабан!!!')
+function userArr(state = [], action) {
+  switch (action.type) {
+    case 'PUSH':
+      if (action.id < state.length) {
+        if (action.key === state[action.id].key) {
+          state[action.id].isValid = true;
+        } else {
+          state[action.id].isValid = false;
         }
+      } else {
+        // alert('Кабан!!!');
         return state;
-         
-            case 'SELECTED':
-                const userArr = action.data.symbols.split('').map((el, idx) => ({key: el, id: idx, isValid: null}));
+      }
+      return state;
 
-            console.log(action.data.symbols);
-            return userArr;
-        default:
-            return state
-    }
+    case 'SELECTED':
+      const userArr = action.data.symbols
+        .split('')
+        .map((el, idx) => ({ key: el, id: idx, isValid: null }));
+      return userArr;
+
+    case 'CLEARUSERARR':
+      const x = action.selected.symbols
+        .split('')
+        .map((el, idx) => ({ key: el, id: idx, isValid: null }));
+      return x;
+    default:
+      return state;
+  }
 }
 export default userArr;

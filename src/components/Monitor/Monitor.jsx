@@ -4,11 +4,10 @@ import InputArea from '../InputArea/InputArea';
 
 import './Monitor.css';
 
-const Monitor = (props) => {
-  console.log(props);
+const Monitor = ({inputTracking}) => {
   return (
     <div className='Monitor'>
-      <MonitorHeader />
+      <MonitorHeader inputTracking={inputTracking}/>
       <InputArea />
     </div>
   );

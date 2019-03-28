@@ -4,7 +4,6 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import firebase from 'firebase';
-import {addUserStatistics} from './server';
 
 import Levels from '../src/Levels/Levels';
 import './App.css';
@@ -12,12 +11,12 @@ import './App.css';
 import Registration from './Registration/Registration';
 import LevelScreen from './components/LevelScreen/LevelScreen';
 import LoginForm from './LoginForm/LoginForm';
+import DevmodeLevels from './components/DevmodeLevels/DevmodeLevels';
+import FinalComponent from './components/FinalComponent/FinalComponent';
 
 class App extends Component {
   componentDidMount() {
     const {history} = this.props;
-
-    // addUserStatistics({a: 12, b: 'xx'}, '7Uji9soUFbYzLsgjmi1ax2irjjo1');
 
     firebase.auth().onAuthStateChanged(user => {
       if(user) {
@@ -30,16 +29,20 @@ class App extends Component {
     })
   }
   render() {
-    const { levelName } = this.props;
 
     return (
+
       <div className="App">
         <Switch>
           <Route path='/register' component={Registration} />
           <Route path='/login' component={LoginForm} />
           <Route exact path="/levels" component={Levels} />
-          <Route path='/levels/:id' component={LevelScreen} />
-        </Switch> 
+          <Route path={`/levels/:id`} component={LevelScreen} />
+          <Route path={`/dev-mode/:id`} component={LevelScreen} />
+          <Route exact path="/dev-mode" component={DevmodeLevels} />
+          <Route path ="/result" component={FinalComponent} />
+        </Switch>
+        {/* <Form /> */}
       </div>
     )}};
   

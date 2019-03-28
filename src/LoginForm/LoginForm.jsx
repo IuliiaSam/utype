@@ -8,20 +8,22 @@ import { signInWithEmailAndPassword } from '../server';
 
 import { inputData } from '../redux/actions/LoginInputActions';
 
-const LoginForm = ({ inputData, inputs }) => {
+import {logedIn} from '../redux/actions/logedInAction';
+
+const LoginForm = ({ inputData, inputs, logedIn }) => {
   return (
       <div className="LoginForm">
     <form
       onSubmit={e => {
         e.preventDefault();
-        signInWithEmailAndPassword(inputs.email, inputs.password);
+        signInWithEmailAndPassword(inputs.email, inputs.password).then(uid => logedIn(uid));
+        // logedIn();
+
       }}
       className="form flex-column center-box shadow max-width-500 padding-all-25"
       method="post"
     >
       <h2 className="h2 text-center">Sign In</h2>
-      {/* <div className="form-group flex-end">
-        <label htmlFor="email">Email</label> */}
         <input
           onChange={e => inputData(e)}
           value={inputs.email}
@@ -30,9 +32,6 @@ const LoginForm = ({ inputData, inputs }) => {
           name="email"
           placeholder="Enter your email"
         />
-      {/* </div> */}
-      {/* <div className="form-group flex-end">
-        <label htmlFor="password">Password</label> */}
         <input
           onChange={e => inputData(e)}
           value={inputs.password}
@@ -41,10 +40,6 @@ const LoginForm = ({ inputData, inputs }) => {
           name="password"
           placeholder="Enter your password"
         />
-      {/* </div> */}
-      {/* <a href="#" className="text-center form-group">
-        Forgot Password?
-      </a> */}
       <button className="btn" type="submit" label="Sign In">
         Sign In
       </button>
@@ -65,7 +60,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    inputData: e => dispatch(inputData(e))
+    inputData: e => dispatch(inputData(e)),
+    logedIn: (uid) => dispatch(logedIn(uid)),
   };
 }
 
