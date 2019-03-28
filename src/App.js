@@ -4,20 +4,20 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import firebase from 'firebase';
+import {addUserStatistics} from './server';
 
 import Levels from '../src/Levels/Levels';
 import './App.css';
-// import Form from './components/Form';
-// import Monitor from './components/Monitor/Monitor';
-// import Validation from './Validation/Validation';
 
 import Registration from './Registration/Registration';
 import LevelScreen from './components/LevelScreen/LevelScreen';
-import FinalComponent from './components/FinalComponent/FinalComponent';
+import LoginForm from './LoginForm/LoginForm';
 
 class App extends Component {
   componentDidMount() {
     const {history} = this.props;
+
+    // addUserStatistics({a: 12, b: 'xx'}, '7Uji9soUFbYzLsgjmi1ax2irjjo1');
 
     firebase.auth().onAuthStateChanged(user => {
       if(user) {
@@ -34,23 +34,21 @@ class App extends Component {
 
     return (
       <div className="App">
-      {/* <Validation/> */}
-        {/* <Switch>
-          <Route path='/login' component={Registration} />
+        <Switch>
+          <Route path='/register' component={Registration} />
+          <Route path='/login' component={LoginForm} />
           <Route exact path="/levels" component={Levels} />
-          <Route path={`/levels/:id`} component={LevelScreen} />
-        </Switch> */}
-        {/* <Form /> */}
-       <FinalComponent />
+          <Route path='/levels/:id' component={LevelScreen} />
+        </Switch> 
       </div>
-    );
-  }
-}
+    )}};
+  
+
 
 function mapStateToProps(state) {
   return {
-    levelName: state.selected.title
-  };
+    levelName: state.selected.title,
+  }
 }
 
 export default withRouter(connect(mapStateToProps)(App));

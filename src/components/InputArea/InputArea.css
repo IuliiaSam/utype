@@ -1,11 +1,20 @@
+.InputArea {
+  min-height: 38vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .InputArea__sample {
   padding: .5rem;
   font-size: 1.5rem;
   text-align: center;
+  /* min-height: 23vh; */
+  
 }
 
 .InputArea__textArea {
-  min-height: 23vh;
+  /* min-height: 23vh; */
   font-size: 1.5rem;
   padding: .5rem;
   background-color: rgb(255, 248, 240);
@@ -47,4 +56,14 @@
   background-color: red;
   outline: solid 0.1rem red;
   color: white;
+ }
+ .underline {
+  text-decoration: underline;
+  /* text-shadow: -273px 48px 0 rgba(170, 12, 233, 0.555); */
+
+  
+ }
+ .noUnderline { 
+  text-decoration: none;
+  /* box-shadow: none; */
  }

@@ -1,16 +1,42 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import Monitor from '../Monitor/Monitor';
 import Keyboard from '../Keyboard/Keyboard';
+import {connect} from 'react-redux';
 
 import './LevelScreen.css';
+import Header from '../../Header/Header';
+import FinalComponent from '../FinalComponent/FinalComponent';
 
-const LevelScreen = () => {
+
+
+const LevelScreen = ({userArr}) => {
+
+
   return (
-    <div className='LevelScreen'>
-      <Monitor />
-      <Keyboard />
+    <div className="LevelScreen">
+       <Header />
+       <Monitor/>
+       <Keyboard/>
     </div>
   );
 };
 
-export default LevelScreen;
+
+
+
+function MSTP (state){
+  return{
+  userArr: state.userArr
+  }
+}
+
+function MDTP(dispatch){
+  return{
+
+  }
+}
+
+
+
+export default connect(MSTP,MDTP)(LevelScreen);
+

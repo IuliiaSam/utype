@@ -1,37 +1,40 @@
 .FinalComponent-commonDiv{
-    width: 100vw;
+    position: absolute;
+    right: 0;
+    width: 88%;
     height: 100vh;
     background: rgb(15,2,54);
     background: radial-gradient(circle, rgba(15,2,54,0.9051995798319328) 5%, rgba(8,13,62,1) 33%);
     padding-top: 10px;
 }
 .FinalComponent-commonDiv--AllStar{
-    padding-top: 10rem;
+    /* padding-top: 10rem; */
     margin: 0 auto;
     width: 70%;
+    height: 20vh;
     border: 5px solid grey;
     padding:10px;
     display: flex;
     justify-content: space-around;
 
 }
-.FinalComponent-gold {
-    width: 100px;
-    height: 100px; 
+.FinalComponent-gold{
+    width: 18%;
+    height: 100%;
     display: block;
     background-image: url('./star-1586412_960_720.png');
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     box-shadow: rgba(209, 88, 88, 0.856);
 }
 .FinalComponent-silver{
-    width: 100px;
-    height: 100px; 
+    width: 18%;
+    height: 100%; 
     display: block;
-    background-image: url('./silver.png');
+    background-image: url('./Black\ &\ White\ 1.png');
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 .FinalSpanCenter{
@@ -42,17 +45,21 @@
 }
 .FinalComponent-Title{
     color:orangered;
-    font-size: 5rem;
+    width: 50%;
+    font-size: 3rem;
     font-weight: 700;
 }
 .FinalComponent-scoreDiv{
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    margin-top: 5rem;
+    margin:  5rem auto 0;
+    width: 70%;
 }
 .FinalComponent-score{
     color:white;
-    font-size: 7rem;
+    width: 50%;
+    font-size: 3rem;
     font-weight: 800;
-    margin-left: 10rem;
+    /* margin-left: 10rem; */
 }

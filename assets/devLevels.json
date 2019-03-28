@@ -1,0 +1,142 @@
+[
+  {
+    "title": "task-1",
+    "symbols": "const foo = 123; let bar = 456; var qux = 789",
+    "row": "middle",
+    "id": 1,
+    "level": 1
+  },
+  {
+    "title": "task-2",
+    "symbols": "let s = (a, b) => { return a + b }; let sum = [1, 2].reduce(s); let double = [3, 4].map(v => 2 * v)",
+    "row": "middle",
+    "id": 2,
+    "level": 2
+  },
+  {
+    "title": "task-3",
+    "symbols": "function *foo() { yield 1; yield 2; const iterator = foo(); let bar = iterator.next(); let qux = iterator.next()",
+    "row": "middle",
+    "id": 3,
+    "level": 3
+  },
+  {
+    "title": "task-4;",
+    "symbols": "class Input extends Field { constructor(options) { super(options); this.value = '' }; get foo() { return this.bar }; set foo(v) { this.bar = v }; ['foo' + 'bar']() { return 7 }; static method() { return 1 }; }",
+    "row": "middle",
+    "id": 4,
+    "level": 4
+  },
+  {
+    "title": "task-5;",
+    "symbols": "let iterable = [1, 2, 3, 4]; for (const value of iterable) { alert(value) }",
+    "row": "middle",
+    "id": 5,
+    "level": 5
+  },
+  {
+    "title": "task-6",
+    "symbols": "export const foo = 1; export default function square(a) { return a * a }; export * from 'Math'",
+    "row": "top",
+    "id": 6,
+    "level": 6
+  },
+  {
+    "title": "task-7",
+    "symbols": "import square from 'MyMath; import * as math from 'MyMath'; import { foo } from 'MyMath'; import square, * as math from 'MyMath'; import { foo as bar } from 'MyMath'",
+    "row": "top",
+    "id": 7,
+    "level": 7
+  },
+  {
+    "title": "task-8",
+    "symbols": "function sum(a = 1, b = 2) { return a + b }; sum()",
+    "row": "top",
+    "id": 8,
+    "level": 8
+  },
+  {
+    "title": "task-9",
+    "symbols": "function sum(a = 1, ...args) { return args.reduce((x, y) => x + y, a) }; sum(2, 3, 4, 5)",
+    "row": "top",
+    "id": 9,
+    "level": 9
+  },
+  {
+    "title": "task-10",
+    "symbols": "function sum([a, b, c = 0]) { return a + b + c }; sum(6, 7); function hello({name: world = 'World'}) { return 'hello ' + world }; hello({name: 'Garfield'})",
+    "row": "top",
+    "id": 10,
+    "level": 10
+  },
+  {
+    "title": "task-11",
+    "symbols": "Math.max(...[1, 2, 3]); let a = [3, 4]; let b = [1, 2, ...a]; const foo = {a: 1, b: 2}; const bar = { c: 3, ...foo}",
+    "row": "bottom",
+    "id": 11,
+    "level": 11
+  },
+  {
+    "title": "task-12",
+    "symbols": "let x = [x, , y, z] = [0, null, 1, 2]; const [first,] = 'typing'; let {a, b:c = 6} = {a: 7}",
+    "row": "bottom",
+    "id": 12,
+    "level": 12
+  },
+  {
+    "title": "task-13",
+    "symbols": "const timeout = (duration = 0) => { return new Promise((resolve, reject) => { setTimeout(resolve, duration) }) }; Promise.all([timeout(9), timeout(8)]).then(() => { alert('Success') }).catch(error => { alert('Error' + error) })",
+    "row": "bottom",
+    "id": 13,
+    "level": 13
+  },
+  {
+    "title": "task-14",
+    "symbols": "let map = new Map(); let [str, obj, fun] = ['str', {}, () => {}]; map.set(str, 1); map.set(obj, 2); map.set(fun, 3); console.log(map.size); map.get(obj); map.delete(fun); for (const [key, value] of map.entries()) { console.log(key, value) }",
+    "row": "bottom",
+    "id": 14,
+    "level": 14
+  },
+  {
+    "title": "task-15",
+    "symbols": "let s = new Set(); s.add(1); set.add(8); s.add('string'); s.add({}); s.has(1); console.log(s.size); s.delete(8); s.keys(); s.value(); s.clear()",
+    "row": "bottom",
+    "id": 15,
+    "level": 15
+  },
+  {
+    "title": "task-16",
+    "symbols": "let wm = new WeakMap(); let [str, obj, fun] = ['str', {}, () => {}]; wm.set(str, 1); wm.get(obj); wm.has(fun); wm.delete(str)",
+    "row": "number",
+    "id": 16,
+    "level": 16
+  },
+  {
+    "title": "task-17",
+    "symbols": "let wms= new WeakSetf(); let [str, obj, fun] = ['str', {}, () => {}]; wm.add(str); wm.has(obj); wm.delete(fun)",
+    "row": "number",
+    "id": 17,
+    "level": 17
+  },
+  {
+    "title": "task-18",
+    "symbols": "Array.from(document.querySelectorAll('*')); Array.of(1,2,3); [4,5,6].fill(7,1); [8,9,10].find(x => x > 9); let arr = [5,6,7,8]; arr.entries(); arr.keys(); arr.values()",
+    "row": "number",
+    "id": 18,
+    "level": 18
+  },
+  {
+    "title": "task-19",
+    "symbols": "const MDTP = dispatch => ({ readInputValue: e => { dispatch(inputData(e)); } })",
+    "row": "number",
+    "id": 19,
+    "level": 19
+  },
+  {
+    "title": "task-20",
+    "symbols": "const Reducer = (state = {}, action) => { switch (action.type) { case 'INPUT': return action.data; default: return state; }}",
+    "row": "number",
+    "id": 20,
+    "level": 20
+  }
+]
