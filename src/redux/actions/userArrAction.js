@@ -3,5 +3,9 @@ export const userArr = (key,counter, selected) => ({
     key,
     id: counter,
     selected,
-    
+})
+
+export const clearUserArr = (selected) => ({
+    type: 'CLEARUSERARR',
+    selected,
 })

@@ -8,20 +8,29 @@ const Header = () => {
   return (
     <header className="header">
       <div className="wrap">
-        <img
-          className="logo"
-          src="https://files.slack.com/files-pri/TCJ0ZHEGL-FHCV04Z8X/logo.png"
-          alt="logo"
-        />
+        <NavLink className="Header__link" to="/levels">
+          <img
+            className="logo"
+            src="https://files.slack.com/files-pri/TCJ0ZHEGL-FHCV04Z8X/logo.png"
+            alt="logo"
+          />
+        </NavLink>
+
         <ul className="headerNavMenu">
           <li className="headerNavMenuItem">
-            <NavLink className="Header__link" to="/levels">Home</NavLink>
+            <NavLink className="Header__link" to="/levels">
+              Home
+            </NavLink>
           </li>
           <li className="headerNavMenuItem">
-            <NavLink className="Header__link" to="/tutorial">Stat</NavLink>
+            <NavLink className="Header__link" to="/statistics">
+              Statistics
+            </NavLink>
           </li>
           <li className="headerNavMenuItem">
-            <NavLink className="Header__link" to="/main">Developer</NavLink>
+            <NavLink className="Header__link" to="/dev-mode">
+              Dev Mode
+            </NavLink>
           </li>
         </ul>
         <div />

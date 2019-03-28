@@ -3,7 +3,7 @@
   max-width: 60rem;
   margin: 0 auto;
   justify-content: space-between;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
   background-color: #eee;
 }
 
@@ -11,6 +11,10 @@
   border-left: 2px solid gray;
   width: 20%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .MonitorHeader__item:first-child {
