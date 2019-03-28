@@ -67,3 +67,7 @@
   text-decoration: none;
   /* box-shadow: none; */
  }
+
+ .whiteSpace {
+   white-space: pre;
+ }

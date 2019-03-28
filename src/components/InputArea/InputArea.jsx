@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 
 import { typigData } from '../../redux/actions/typingActions';
@@ -17,7 +17,7 @@ const InputArea = ({
   counter,
   counterAction,
   userArrAction,
-  userArr,
+  userArr
   // focus,
   // blur,
   // isTextAreaFocused
@@ -48,9 +48,14 @@ const InputArea = ({
   useEffect(() => inputEl.current.focus());
 
   return (
-    <div className='InputArea'>
-      <div className="InputArea__sample" tabIndex={-1} onKeyDown={actions} ref={inputEl}>
-        {userArr.map(el => (
+    <div className="InputArea">
+      <div
+        className="InputArea__sample"
+        tabIndex={-1}
+        onKeyDown={actions}
+        ref={inputEl}
+      >
+        {userArr.map((el, idx) => (
           <span
             key={el.id}
             style={
@@ -63,7 +68,9 @@ const InputArea = ({
             className={el.id === counter ? 'underline' : 'noUnderline'}
           >
             {el.key}
+           {el.key === ';' &&  <br/>}
           </span>
+          
         ))}
       </div>
     </div>

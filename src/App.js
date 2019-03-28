@@ -41,6 +41,7 @@ class App extends Component {
           <Route path='/login' component={LoginForm} />
           <Route exact path="/levels" component={Levels} />
           <Route path={`/levels/:id`} component={LevelScreen} />
+          <Route path={`/dev-mode/:id`} component={LevelScreen} />
           <Route exact path="/dev-mode" component={DevmodeLevels} />
         </Switch>
         {/* <Form /> */}
