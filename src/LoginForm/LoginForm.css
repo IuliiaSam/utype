@@ -20,8 +20,15 @@
     box-shadow: inset 0 -2px 0 #66afe9;
 }
 
+.input__valid{
+    box-shadow: inset 0 -2px 0 #00FF00;
+    color: 
+}
+.input__invalid{
+    box-shadow: inset 0 -2px 0 #FF0000;
+}
 .shadow {
-    box-shadow: 0 0 125px rgba(0,0,0,0.15);
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 .max-width-500 {
     max-width: 500px;
