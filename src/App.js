@@ -13,6 +13,7 @@ import './App.css';
 
 import Registration from './Registration/Registration';
 import LevelScreen from './components/LevelScreen/LevelScreen';
+import FinalComponent from './components/FinalComponent/FinalComponent';
 
 class App extends Component {
   componentDidMount() {
@@ -33,6 +34,14 @@ class App extends Component {
 
     return (
       <div className="App">
+      {/* <Validation/> */}
+        {/* <Switch>
+          <Route path='/login' component={Registration} />
+          <Route exact path="/levels" component={Levels} />
+          <Route path={`/levels/:id`} component={LevelScreen} />
+        </Switch> */}
+        {/* <Form /> */}
+       <FinalComponent />
       </div>
     );
   }

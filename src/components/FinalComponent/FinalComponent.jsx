@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './FinalComponent.css';
 
 
 class FinalComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className='FinalComponent-commonDiv'>
+            <div className='FinalComponent-commonDiv--AllStar'>
+            <img src="./silver.png" alt="" className='FinalComponent-gold'/>
+                <span className='FinalComponent-gold'></span>
+                <span className='FinalComponent-gold FinalSpanCenter'></span>
+                <span className='FinalComponent-gold FinalSpan'></span>
+                <span className='FinalComponent-silver'></span>
+                <navLink></navLink>
+            </div>
+            <div className='FinalComponent-scoreDiv'>
+            <p className='FinalComponent-Title'>Your score:</p>
+            <p className='FinalComponent-score'>2400</p>
+            </div>
                 
             </div>
         );
@@ -15,8 +28,7 @@ class FinalComponent extends Component {
 
 function MSTP (state){
     return{
-        score:state.finalResult.score,
-        acuracy:state.finalResult.score,
+    
     }
 }
 
