@@ -30,10 +30,10 @@ class App extends Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if(user) {
-        console.log("Logined");
+        // console.log("Logined");
         history.push('/levels')
       } else {
-        console.log("Not logined");
+        // console.log("Not logined");
         history.push('/login')
       }
     })

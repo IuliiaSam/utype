@@ -10,6 +10,8 @@ import {inputAction} from '../../redux/actions/inputAction';
 
 import './InputArea.css';
 
+const keys = Array.from(document.querySelectorAll('.key'));
+
 const InputArea = ({
   counter,
   counterAction,
@@ -21,8 +23,14 @@ const InputArea = ({
     const regex = /^.{1}$/;
     if (e.key.match(regex)) {
       counterAction();
-      userArrAction(e.key, counter, userArr);
+      userArrAction(e.key, counter, userArr, e.keyCode);
       inputAction(e, userArr);
+      // console.log('keycode', e.charCode);
+      const keysArr = Array.from(document.querySelectorAll('.key'));
+      // keysArr.map(el => el.classList.contains(`key-${e.keyCode}`) ? console.log('aaaa') : console.log('null'));
+      keysArr.map(el => el.className.includes(e.charCode.toString()) ? el.classList.add('pressed') : el.classList.remove('pressed'));
+
+      
     } else {
       return;
     }
@@ -48,7 +56,9 @@ const InputArea = ({
       <div
         className="InputArea__sample"
         tabIndex={-1}
-        onKeyDown={actions}
+        // onKeyDown={actions}
+        onKeyPress={actions}
+
         ref={inputEl}
       >
         {userArr.map(el => (
@@ -90,8 +100,8 @@ function mapDispatchToProps(dispatch) {
     counterAction: function() {
       dispatch(counterAction());
     },
-    userArrAction: function(key, counter, selected) {
-      dispatch(userArr(key, counter, selected));
+    userArrAction: function(key, counter, selected, keyCode) {
+      dispatch(userArr(key, counter, selected, keyCode));
     },
     inputAction: function(e, userArr) { dispatch(inputAction(e, userArr)) },
     focus: () => dispatch(focus()),

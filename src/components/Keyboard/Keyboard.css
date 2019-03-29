@@ -1,6 +1,6 @@
 .Keyboard {
   background-color: #eee;
-  padding: 1rem;
+  /* padding: 1rem; */
   min-height: 35rem;
   max-width: 42.5rem;
   margin: 0 auto;
@@ -17,7 +17,7 @@
   height: 12rem;
   background-color: #aaa;
   position: absolute;
-  bottom: 4rem;
+  bottom: 5rem;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
@@ -57,7 +57,7 @@
 }
 
 .key-13 {
-  width: 69px;
+  width: 67px;
   /* border-bottom-right-radius: 5px; */
   font-size: .7rem;
   text-transform: capitalize;
@@ -80,7 +80,7 @@
 }
 
 .key-rshift {
-  width: 92px;
+  width: 90px;
   font-size: .7rem;
   text-transform: capitalize;
 }

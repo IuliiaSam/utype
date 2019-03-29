@@ -1,6 +1,7 @@
 function userArr(state = [], action) {
   switch (action.type) {
     case 'PUSH':
+    // console.log(action.keyCode)
       if (action.id < state.length) {
         if (action.key === state[action.id].key) {
           state[action.id].isValid = true;

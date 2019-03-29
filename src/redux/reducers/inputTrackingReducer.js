@@ -40,8 +40,6 @@ const inputTracking = (state = obj, action) => {
           el => el.id === Number(State.keyStrokes - 1)
         );
 
-        ////////
-
         lastKey.time = Date.now();
 
         if (lastKey.key !== ' ' && lastKey.id !== State.endOfLine) {
@@ -49,6 +47,11 @@ const inputTracking = (state = obj, action) => {
             State.wordStartMark = lastKey.id;
             State.wordStartTime = lastKey.time;
           }
+
+          // const keysArr = Array.from(document.querySelectorAll('.key'));
+          // keysArr.map(el => el.classList.contains(action.keyCode) ? console.log('aaaa') : console.log('null'));
+
+
         } else {
           // коли користувач натиснув на пробіл, розраховуємо швидкість друку (у літерах на хвилину)
           if (lastKey.id !== State.endOfLine) {
@@ -62,7 +65,7 @@ const inputTracking = (state = obj, action) => {
           }
           const wordCharacters = State.wordEndMark - State.wordStartMark;
 
-          const wordDuration = (State.wordEndTime - State.wordStartTime) / 1000;
+          const wordDuration = (State.wordEndTime - State.wordStartTime) / 1000 ? (State.wordEndTime - State.wordStartTime) / 1000 : 1
 
           State.charactersPerMinute = Math.floor(
             (wordCharacters * 60) / wordDuration

@@ -1,34 +1,21 @@
 .InputArea {
-  min-height: 38vh;
+  min-height: 43vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .InputArea__sample {
-  padding: 0 .5rem;
+  width: 99%;
+  /* padding: 0 .2rem; */
   font-size: 1.5rem;
   text-align: center;
-  /* min-height: 23vh; */
+  letter-spacing: 0.2rem;
 }
 
 .InputArea__sample:focus {
-  /* outline: 4px double #4caf50; */
   outline: none;
-  /* box-shadow: 0 0 7px 1px #5e5e5e; */
   border-radius: 5px;
-}
-
-.InputArea__textArea {
-  /* min-height: 23vh; */
-  font-size: 1.5rem;
-  padding: .5rem;
-  background-color: rgb(255, 248, 240);
-}
-
-.InputArea__textArea:focus {
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.26);
-  outline: none;
 }
 
 .cursor {
@@ -63,12 +50,16 @@
   outline: solid 0.1rem red;
   color: white;
  }
- .underline {
-  text-decoration: underline;
-  /* text-shadow: -273px 48px 0 rgba(170, 12, 233, 0.555); */
 
-  
- }
+ .InputArea__sample:focus .underline {
+  text-decoration: underline;
+  animation: blink-animation 1s infinite;
+}
+
+ /* .underline {
+  text-decoration: underline;
+  animation: blink-animation 1s infinite;
+ } */
  .noUnderline { 
   text-decoration: none;
   /* box-shadow: none; */
@@ -77,3 +68,29 @@
  .whiteSpace {
    white-space: pre;
  }
+
+
+ @keyframes blink-animation {
+  to {
+    text-decoration: none;
+    
+  }
+}
+/* @-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+} */
+
+.pressed {
+  animation: keypress .3s 1;
+  background-color: transparent;
+
+}
+
+@keyframes keypress {
+  to {
+  background-color: #aaa;
+    
+  }
+}

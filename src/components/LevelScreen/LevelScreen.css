@@ -7,3 +7,7 @@
   background-image: linear-gradient(rgba(48, 48, 48, 0.486), rgba(49, 49, 49, 0.473)),
     url('https://img2.goodfon.ru/original/2560x1600/8/8c/hacker-programmisty-computer-code-kompiutery-khaker-technolo.jpg');
 }
+
+.computer-wrapper {
+  perspective: 1000px;
+}

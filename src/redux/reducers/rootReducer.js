@@ -12,6 +12,7 @@ import setLevelsReducer from '../../Levels/Reducer/setLevelsReducer';
 import toggleFocus from '../reducers/toggleFocusReducer';
 import setDevLevelsReducer from '../reducers/setDevLevelsReducer';
 import userStatisticsReducer from '../reducers/userStatisticsReducer';
+import keysArray from '../reducers/keysArrayReducer';
 
 const rootReducer = combineReducers({
    inputs,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
    speedprogression,
    correctinput,
    userStatistics: userStatisticsReducer,
+   keysArray,
 })
 
 export default rootReducer;
