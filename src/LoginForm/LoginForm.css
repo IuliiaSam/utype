@@ -56,12 +56,10 @@ small {
   font-size: 17px;
   line-height: 1.3333333;
   border-radius: 3px;
-
   border: none;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
   transition: all 0.4s;
-
-  margin: 1rem 0;
+  margin: 1rem 0 0;
 }
 
 .link {
