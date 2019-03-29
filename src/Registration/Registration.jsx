@@ -11,7 +11,8 @@ const Registration = ({readInputValue, inputs}) => {
     const regular = {
         name: /^[A-Za-z0-9_]{4,16}$/,
         email: /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim,
-        password: /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{5,})\S$/,
+        password:/^[A-Za-z0-9]{4,16}$/,
+        // password: /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{5,})\S$/,
     };
 
     let nameOK = regular.name.test(inputs.name);
@@ -46,7 +47,7 @@ const Registration = ({readInputValue, inputs}) => {
                 <label htmlFor="password"className="input-label"><span>Password</span></label>
                 <div className="input-conteiner">
                     <input type="password" name="password" className="form-input" placeholder="Password" aria-autocomplete="list" onChange={readInputValue}></input>
-                    {inputs.password.length === 0 ? null : passOK ? null : <small>Password must be at least 6 characters long and contain at least 1 uppercase letter, 1 lowercase letter and 1 number.</small>}
+                    {inputs.password.length === 0 ? null : passOK ? null : <small>Password must be at least 4 characters long and contain only letters and numbers [a-z, A-Z, 0-9].</small>}
                 </div>
             </div>
                  
