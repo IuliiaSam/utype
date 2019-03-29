@@ -10,3 +10,17 @@ body {
     -webkit-font-smoothing: antialiased;
     letter-spacing: .1px;
 }
+.loader-plane,
+.no-statistics{
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.no-statistics{
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: monospace;
+    text-align: center;
+    text-shadow: 5px 7px 3px #b7b7b7;
+}
