@@ -74,10 +74,10 @@ class FinalComponent extends Component {
               </p>
             </div>
             <NavLink
-              to="/levels"
+              to="/statistics"
               className="identyMenuItem FinalComponent--btn"
             >
-              NAZAR
+              Check all statistics
             </NavLink>
           </div>
         </div>

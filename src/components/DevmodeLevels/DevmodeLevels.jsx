@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { getDevmodeLevels } from '../../server';
 import choosenLevelAction from '../../Levels/Action/choosenLevelAction';
 
+import { clearStatistics } from '../../redux/actions/clearStatisticsAction';
+import { clearUserArr } from '../../redux/actions/userArrAction';
+import { resetCounter } from '../../redux/actions/counterAction';
+
+
 import Header from '../../Header/Header';
 import Loader from 'react-loader-spinner';
 
@@ -12,6 +17,10 @@ import './DevmodeLevels.css';
 class DevmodeLevels extends Component {
   componentDidMount() {
     this.props.getDevmodeLevels();
+
+    this.props.clearStatistics();
+    Object.keys(this.props.selected).length && this.props.clearUserArr(this.props.selected);
+    this.props.resetCounter();
   }
 
   render() {
@@ -61,12 +70,17 @@ class DevmodeLevels extends Component {
 
 // get data from state
 const mstp = state => ({
-  devLevels: state.devLevels
+  devLevels: state.devLevels,
+  selected: state.selected,
 });
 
 const mdtp = dispatch => ({
   getDevmodeLevels: () => dispatch(getDevmodeLevels()),
-  chooseLevel: (e, data) => dispatch(choosenLevelAction(e, data))
+  chooseLevel: (e, data) => dispatch(choosenLevelAction(e, data)),
+
+  resetCounter: () => dispatch(resetCounter()),
+  clearStatistics: () => dispatch(clearStatistics()),
+  clearUserArr: selected => dispatch(clearUserArr(selected))
 });
 
 export default connect(

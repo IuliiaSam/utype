@@ -66,8 +66,8 @@
 }
 
 .FinalComponent--btn {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    /* transform: translateX(-50%); */
+    display: block;
+    background-color: #407da1;
+    padding: 1rem;
+    text-transform: uppercase;
 }

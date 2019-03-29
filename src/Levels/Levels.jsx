@@ -34,7 +34,6 @@ class Levels extends Component {
     } = this.props;
     // useEffect = (() => {clearStatistics(); clearUserArr(selected)}, [match]);
 
-    // console.log(levels);
     return (
       <div className="levels-container">
 

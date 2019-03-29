@@ -4,19 +4,37 @@
   margin: 0 auto;
   justify-content: space-between;
   /* padding: 1rem 0; */
-  background-color: #eee;
+  /* background-color: #eee; */
+  background-color: #222;
+  color: #eee;
+  width: 100.2%;
 }
 
 .MonitorHeader__item {
-  border-left: 2px solid gray;
+  /* border-left: 2px solid gray; */
   width: 20%;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .MonitorHeader__item:first-child {
   border: none;
+}
+
+.MonitorHeader__label {
+  color: #4caf50;
+}
+.MonitorHeader__label--speed {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.MonitorHeader__number {
+  font-size: 1rem;
 }

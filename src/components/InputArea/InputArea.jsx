@@ -6,7 +6,7 @@ import { selectLevel } from '../../redux/actions/selectLevelActions';
 import { counterAction } from '../../redux/actions/counterAction';
 import { userArr } from '../../redux/actions/userArrAction';
 import { focus, blur } from '../../redux/actions/toggleFocusActions';
-import {inputAction} from '../../redux/actions/inputAction';
+import { inputAction } from '../../redux/actions/inputAction';
 
 import './InputArea.css';
 
@@ -17,7 +17,7 @@ const InputArea = ({
   counterAction,
   userArrAction,
   userArr,
-  inputAction,
+  inputAction
 }) => {
   const actions = e => {
     const regex = /^.{1}$/;
@@ -27,10 +27,12 @@ const InputArea = ({
       inputAction(e, userArr);
       // console.log('keycode', e.charCode);
       const keysArr = Array.from(document.querySelectorAll('.key'));
-      // keysArr.map(el => el.classList.contains(`key-${e.keyCode}`) ? console.log('aaaa') : console.log('null'));
-      keysArr.map(el => el.className.includes(e.charCode.toString()) ? el.classList.add('pressed') : el.classList.remove('pressed'));
-
-      
+      keysArr.map(el => el.classList.remove('pressed'));
+      keysArr.map(el => {
+        el.className.includes(e.charCode.toString())
+          ? el.classList.add('pressed')
+          : el.classList.remove('pressed');
+      });
     } else {
       return;
     }
@@ -38,13 +40,17 @@ const InputArea = ({
 
   const styles = {
     valid: {
-      backgroundColor: 'green'
+      color: '#4caf50',
+      boxShadow: '0 3px 0px #4caf50',
     },
     invalid: {
-      backgroundColor: 'red'
+      color: 'red',
+      boxShadow: '0 3px 0px red',
     },
     defStyle: {
-      backgroundColor: 'none'
+      backgroundColor: 'none',
+      // color: '#fff',
+      boxShadow: '0 3px 0px #555',
     }
   };
 
@@ -58,7 +64,6 @@ const InputArea = ({
         tabIndex={-1}
         // onKeyDown={actions}
         onKeyPress={actions}
-
         ref={inputEl}
       >
         {userArr.map(el => (
@@ -74,9 +79,8 @@ const InputArea = ({
             className={el.id === counter ? 'underline' : 'noUnderline'}
           >
             {el.key}
-           {el.key === ';' &&  <br/>}
+            {el.key === ';' && <br />}
           </span>
-          
         ))}
       </div>
     </div>
@@ -103,7 +107,9 @@ function mapDispatchToProps(dispatch) {
     userArrAction: function(key, counter, selected, keyCode) {
       dispatch(userArr(key, counter, selected, keyCode));
     },
-    inputAction: function(e, userArr) { dispatch(inputAction(e, userArr)) },
+    inputAction: function(e, userArr) {
+      dispatch(inputAction(e, userArr));
+    },
     focus: () => dispatch(focus()),
     blur: () => dispatch(blur())
   };

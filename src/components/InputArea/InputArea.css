@@ -11,6 +11,7 @@
   font-size: 1.5rem;
   text-align: center;
   letter-spacing: 0.2rem;
+  cursor: pointer;
 }
 
 .InputArea__sample:focus {
@@ -40,9 +41,9 @@
 }
 
 .valid {
-  background-color: green;
+  /* background-color: green;
   outline: solid 0.1rem green;
-  color: white;
+  color: white; */
  }
  
  .invalid {
@@ -83,14 +84,14 @@
 } */
 
 .pressed {
-  animation: keypress .3s 1;
-  background-color: transparent;
+  /* animation: keypress .3s 1; */
+  /* background-color: transparent; */
+  background-color: #ccc;
 
 }
 
 @keyframes keypress {
   to {
-  background-color: #aaa;
-    
+  background-color: #ccc;
   }
 }
