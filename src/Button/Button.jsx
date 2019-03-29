@@ -2,10 +2,11 @@ import React from 'react';
 
 import './Button.css'
 
-const Button = () => {
+const Button = ({disabled}) => {
     return (
-        <button className="btn">Sing up</button>
+        <button className="btn" disabled={disabled}>Sign up</button>
     );
 };
+
 
 export default Button;

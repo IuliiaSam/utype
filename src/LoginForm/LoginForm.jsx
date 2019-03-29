@@ -43,10 +43,10 @@ const LoginForm = ({ inputData, inputs, logedIn }) => {
       <button className="btn" type="submit" label="Sign In">
         Sign In
       </button>
-      <p className="text-center">
+      <small className="text-center">
         <span>Need to create an account? </span>
         <NavLink to='/register' className='link'>Sign Up</NavLink>
-      </p>
+      </small>
     </form>
     </div>
   );

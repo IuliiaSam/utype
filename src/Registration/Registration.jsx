@@ -8,86 +8,101 @@ import { inputData } from '../redux/actions/inputActions';
 import { createUserWithEmailAndPassword } from '../server';
 import Button from '../Button/Button';
 
-const Registration = ({ readInputValue, inputs }) => {
-  return (
-    <div className="Registration">
-      <form
-        className="form flex-column center-box shadow max-width-500 padding-all-25"
-        onSubmit={e => {
-          e.preventDefault();
-          createUserWithEmailAndPassword(
-            inputs.email,
-            inputs.password,
-            inputs.name
-          );
-        }}
-      >
-        <h2 className=" h2 text-center">Sign Up</h2>
+const Registration = ({readInputValue, inputs}) => {
+    const regular = {
+        name: /^[A-Za-z0-9_]{4,16}$/,
+        email: /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim,
+        password:/^[A-Za-z0-9]{4,16}$/,
+        // password: /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{5,})\S$/,
+    };
 
-        {/* <div className="form-group flex-end">
-          <label class="input-label">
-            Email */}
-            <input
-              type="email"
-              name="email"
-              className="form-input"
-              placeholder="Email"
-              onChange={readInputValue}
-            />
-          {/* </label>
-        </div> */}
+    let nameOK = regular.name.test(inputs.name);
+    let emailOK = regular.email.test(inputs.email);
+    let passOK = regular.password.test(inputs.password)  ;
+    let confpassOK = inputs.password === inputs.confirm_password;
 
-        {/* <div className="form-group flex-end">
-          <label class="input-label">
-            Username */}
-            <input
-              type="text"
-              name="name"
-              className="form-input"
-              placeholder="Username"
-              onChange={readInputValue}
-            />
-          {/* </label>
-        </div> */}
+    let isAllInputsValueCorrect = emailOK && nameOK && passOK && confpassOK;      
 
-        {/* <div className="form-group flex-end">
-          <label class="input-label">
-            Password */}
-            <input
-              type="password"
-              name="password"
-              className="form-input"
-              placeholder="Password"
-              aria-autocomplete="list"
-              onChange={readInputValue}
-            />
-          {/* </label>
-        </div> */}
+    return (
+        <form 
+            className="Registration-form flex-column center-box shadow max-width-500 padding-all-25 margin-top-50"
+            onSubmit={e => {
+                e.preventDefault();
+                createUserWithEmailAndPassword(
+                    inputs.email,
+                    inputs.password,
+                    inputs.name
+                    );
+                }}
+            >
 
-        {/* <div className="form-group flex-end">
-          <label class="input-label">
-            Confirm password */}
-            <input
-              type="password"
-              name="confirm_password"
-              className="form-input"
-              placeholder="Confirm password"
-              onChange={readInputValue}
-            />
-          {/* </label>
-        </div> */}
+            <h1 className="text-center">Sign Up</h1>
 
-        <Button />
+            <div className={inputs.email.length === 0 ? "Registration-form__group" : emailOK ? "Registration-form__group success" : "Registration-form__group error"}>
+                <label htmlFor="email"className="input-label"><span>Email</span></label>
+                <div className="input-conteiner">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        className="Registration-form__input" 
+                        placeholder="Email" 
+                        onChange={readInputValue}
+                    />
+                    {inputs.email.length === 0 ? null : emailOK ? null : <small>Invalid email address.</small>}
+                </div>
+            </div>
 
-        <p className="text-center">
-          <span>Already have an account? </span>
-          <NavLink className="link" to="/login">
-            Sign In
-          </NavLink>
-        </p>
-      </form>
-    </div>
-  );
+            <div className={inputs.name.length === 0 ? "Registration-form__group" : nameOK ? "Registration-form__group success" : "Registration-form__group error"}>
+                <label htmlFor="name"className="input-label"><span>Username</span></label>
+                <div className="input-conteiner">
+                    <input 
+                        type="text" 
+                        name="name" 
+                        className="Registration-form__input" 
+                        placeholder="Username" 
+                        onChange={readInputValue}
+                    />
+                    {inputs.name.length === 0 ? null : nameOK ? null : <small>Username must be at least 4 characters long and contain only letters and numbers [a-z, A-Z, 0-9].</small>}
+                </div>
+            </div>
+
+            <div className={inputs.password.length === 0 ? "Registration-form__group" : passOK ? "Registration-form__group success" : "Registration-form__group error"}>
+                <label htmlFor="password"className="input-label"><span>Password</span></label>
+                <div className="input-conteiner">
+                    <input 
+                        type="password" 
+                        name="password" 
+                        className="Registration-form__input" 
+                        placeholder="Password" 
+                        aria-autocomplete="list" 
+                        onChange={readInputValue}
+                    />
+                    {inputs.password.length === 0 ? null : passOK ? null : <small>Password must be at least 4 characters long and contain only letters and numbers [a-z, A-Z, 0-9].</small>}
+                </div>
+            </div>
+                 
+            <div className={!passOK || inputs.confirm_password.length === 0 ? "Registration-form__group" : confpassOK ? "Registration-form__group success" : "Registration-form__group error"}>
+                <label htmlFor="confirm_password"className="input-label"><span>Confirm password</span></label>
+                <div className="input-conteiner">
+                    <input 
+                        type="password" 
+                        name="confirm_password" 
+                        className="Registration-form__input" 
+                        placeholder="Confirm password" 
+                        onChange={readInputValue}
+                    />
+                    {!passOK || inputs.confirm_password.length === 0 ? null : confpassOK ? null : <small>Password does not match the confirm password.</small>}
+                </div>
+            </div>
+
+            <Button disabled={!isAllInputsValueCorrect}/>
+
+            <small className="text-center">
+                <span>Already have an account? </span>
+                <NavLink className="link" to="/login">Sign In</NavLink>
+            </small>
+        </form>
+    );
 };
 
 const MSTP = state => ({
@@ -100,7 +115,4 @@ const MDTP = dispatch => ({
   }
 });
 
-export default connect(
-  MSTP,
-  MDTP
-)(Registration);
+export default connect(MSTP, MDTP) (Registration);
