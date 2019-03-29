@@ -30,11 +30,15 @@ class Static extends Component {
     let datesArr = [];
     let avgSpeedArr = [];
     let accurArr = [];
-    stats.map(el => {
-      datesArr.push(moment(el.levelFinish).format('DD/MM/YY'));
-      avgSpeedArr.push(el.averageSpeed);
-      accurArr.push(el.accuracy);
-    });
+
+    if(stats!== null) {
+      stats.map(el => {
+        datesArr.push(moment(el.levelFinish).format('DD/MM/YY'));
+        avgSpeedArr.push(el.averageSpeed);
+        accurArr.push(el.accuracy);
+      }); 
+    }
+   
 
     const avgSpeedData ={
         labels: datesArr,
@@ -59,42 +63,47 @@ class Static extends Component {
       <div>
         <Header themeMode='header' />
 
-        <div className="wrapChart">
-          <div className="LineChart">
-            <Line
-              data={avgSpeedData}
-              options={{
-                title: {
-                  display: true,
-                  text: 'Прогресс скорости',
-                  fontSize: 14
-                },
-                legend: {
-                  display: false,
-                  position: 'right'
-                },
-                maintainAspectRatio: false
-              }}
-            />
-          </div>
-          <div className="LineChart chart2">
-            <Line
-              data={avgAccurData}
-              options={{
-                title: {
-                  display: true,
-                  text: 'Прогресс правильного ввода',
-                  fontSize: 12
-                },
-                legend: {
-                  display: false,
-                  position: 'right'
-                },
-                maintainAspectRatio: true
-              }}
-            />
-          </div>
+        {stats !== null ?  
+        (<div className="wrapChart">
+        <div className="LineChart">
+          <Line
+            data={avgSpeedData}
+            options={{
+              title: {
+                display: true,
+                text: 'Прогресс скорости',
+                fontSize: 14
+              },
+              legend: {
+                display: false,
+                position: 'right'
+              },
+              maintainAspectRatio: false
+            }}
+          />
         </div>
+        <div className="LineChart chart2">
+          <Line
+            data={avgAccurData}
+            options={{
+              title: {
+                display: true,
+                text: 'Прогресс правильного ввода',
+                fontSize: 12
+              },
+              legend: {
+                display: false,
+                position: 'right'
+              },
+              maintainAspectRatio: true
+            }}
+          />
+        </div>
+      </div> ) 
+      : 
+      (<h2 className="no-statistics">Its your first lesson. Complete at least one level ! Good luck!</h2>)
+      } 
+
       </div>
     );
   }
@@ -102,7 +111,7 @@ class Static extends Component {
 const MSTP = state => ({
   arr: state.speedprogression,
   cor: state.correctinput,
-  stats: state.userStatistics
+  stats: state.userStatistics,
 });
 
 const MDTP = dispatch => ({
