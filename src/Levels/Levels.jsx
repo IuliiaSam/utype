@@ -18,7 +18,7 @@ class Levels extends Component {
     this.props.getLevelsFromFirebase();
 
     this.props.clearStatistics();
-    this.props.clearUserArr(this.props.selected);
+    Object.keys(this.props.selected).length && this.props.clearUserArr(this.props.selected);
     this.props.resetCounter();
   }
 

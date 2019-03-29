@@ -40,6 +40,8 @@ const inputTracking = (state = obj, action) => {
           el => el.id === Number(State.keyStrokes - 1)
         );
 
+        ////////
+
         lastKey.time = Date.now();
 
         if (lastKey.key !== ' ' && lastKey.id !== State.endOfLine) {
