@@ -1,26 +1,73 @@
-import React from 'react';
-
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 
 import { typigData } from '../../redux/actions/typingActions';
 import { selectLevel } from '../../redux/actions/selectLevelActions';
+import { counterAction } from '../../redux/actions/counterAction';
+import { userArr } from '../../redux/actions/userArrAction';
+import { focus, blur } from '../../redux/actions/toggleFocusActions';
+import {inputAction} from '../../redux/actions/inputAction';
 
 import './InputArea.css';
 
-const InputArea = ({ inputText, typigData, selectedLevel, selectLevel }) => {
-  // const chosenLevelSymbols = Object.keys(selectedLevel).length
-  //   ? selectedLevel.symbols
-  //   : selectLevel(JSON.parse(localStorage.getItem('selectedLevel')));
-   
+const InputArea = ({
+  counter,
+  counterAction,
+  userArrAction,
+  userArr,
+  inputAction,
+}) => {
+  const actions = e => {
+    const regex = /^.{1}$/;
+    if (e.key.match(regex)) {
+      counterAction();
+      userArrAction(e.key, counter, userArr);
+      inputAction(e, userArr);
+    } else {
+      return;
+    }
+  };
+
+  const styles = {
+    valid: {
+      backgroundColor: 'green'
+    },
+    invalid: {
+      backgroundColor: 'red'
+    },
+    defStyle: {
+      backgroundColor: 'none'
+    }
+  };
+
+  const inputEl = useRef(null);
+  useEffect(() => inputEl.current.focus());
+
   return (
-    <div>
-      <div className="InputArea__sample">{selectedLevel.symbols}</div>
+    <div className="InputArea">
       <div
-        className="InputArea__textArea"
+        className="InputArea__sample"
         tabIndex={-1}
-        onKeyDown={e => typigData(e)}
+        onKeyDown={actions}
+        ref={inputEl}
       >
-        <p>{inputText}</p>
+        {userArr.map(el => (
+          <span
+            key={el.id}
+            style={
+              el.isValid === true
+                ? styles.valid
+                : el.isValid === false
+                ? styles.invalid
+                : styles.defStyle
+            }
+            className={el.id === counter ? 'underline' : 'noUnderline'}
+          >
+            {el.key}
+           {el.key === ';' &&  <br/>}
+          </span>
+          
+        ))}
       </div>
     </div>
   );
@@ -29,14 +76,26 @@ const InputArea = ({ inputText, typigData, selectedLevel, selectLevel }) => {
 function mapStateToProps(state) {
   return {
     inputText: state.inputText,
-    selectedLevel: state.selected
+    selectedLevel: state.selected,
+    counter: state.counter,
+    userArr: state.userArr,
+    isTextAreaFocused: state.toggleFocus
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     typigData: e => dispatch(typigData(e)),
-    selectLevel: data => dispatch(selectLevel(data))
+    selectLevel: data => dispatch(selectLevel(data)),
+    counterAction: function() {
+      dispatch(counterAction());
+    },
+    userArrAction: function(key, counter, selected) {
+      dispatch(userArr(key, counter, selected));
+    },
+    inputAction: function(e, userArr) { dispatch(inputAction(e, userArr)) },
+    focus: () => dispatch(focus()),
+    blur: () => dispatch(blur())
   };
 }
 

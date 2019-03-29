@@ -1,11 +1,26 @@
+.InputArea {
+  min-height: 38vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .InputArea__sample {
-  padding: .5rem;
+  padding: 0 .5rem;
   font-size: 1.5rem;
   text-align: center;
+  /* min-height: 23vh; */
+}
+
+.InputArea__sample:focus {
+  /* outline: 4px double #4caf50; */
+  outline: none;
+  /* box-shadow: 0 0 7px 1px #5e5e5e; */
+  border-radius: 5px;
 }
 
 .InputArea__textArea {
-  min-height: 30vh;
+  /* min-height: 23vh; */
   font-size: 1.5rem;
   padding: .5rem;
   background-color: rgb(255, 248, 240);
@@ -15,3 +30,50 @@
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.26);
   outline: none;
 }
+
+.cursor {
+	display: inline-block;
+	background-image: url('https://vignette.wikia.nocookie.net/zombidle/images/8/86/Vinque-sign-underscore.png/revision/latest?cb=20170319101043');
+	width: 1.2rem;
+	height: 1.5rem;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	animation: blinker 1.5s cubic-bezier(1,0,0,1) infinite;
+
+	position: relative;
+  /* left: -5px; */
+  bottom: -10px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.valid {
+  background-color: green;
+  outline: solid 0.1rem green;
+  color: white;
+ }
+ 
+ .invalid {
+  background-color: red;
+  outline: solid 0.1rem red;
+  color: white;
+ }
+ .underline {
+  text-decoration: underline;
+  /* text-shadow: -273px 48px 0 rgba(170, 12, 233, 0.555); */
+
+  
+ }
+ .noUnderline { 
+  text-decoration: none;
+  /* box-shadow: none; */
+ }
+
+ .whiteSpace {
+   white-space: pre;
+ }

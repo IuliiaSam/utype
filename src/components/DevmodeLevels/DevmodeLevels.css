@@ -1,0 +1,50 @@
+.list__wrapper--dev {
+  background-image: url('../../img/macosx103-dark.png');
+}
+
+.item-number--dev {
+  font-size: 1rem;
+  box-shadow: 0 2px 10px #272727;
+  background-color: tomato;
+  color: #ddd;
+}
+
+.item-number--dev:hover {
+  background-color: #333;
+  color: tomato;
+}
+
+.levels-container--dev {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.486),
+      rgba(0, 0, 0, 0.473)
+    ),
+    url('https://img2.goodfon.ru/original/2560x1600/8/8c/hacker-programmisty-computer-code-kompiutery-khaker-technolo.jpg');
+}
+
+.header--dev {
+  background-color: #000;
+}
+
+.header--dev .identyMenuItem {
+  background-color: tomato;
+}
+
+.header--dev .identyMenuItem:hover {
+  background-color: rgb(253, 114, 90);
+}
+
+.header--dev .Header__link {
+  color:#aaa;
+}
+
+.header--dev .Header__link:hover {
+  text-shadow: 0 -1px 4px tomato;
+  color: tomato;
+}
+
+.InputArea {
+  color: #aaa;
+  width: 100.02%;
+  background-color: #333;
+}
