@@ -12,28 +12,33 @@ class DevmodeLevels extends Component {
   componentDidMount() {
     this.props.getDevmodeLevels();
   }
- 
 
   render() {
     const { devLevels, chooseLevel } = this.props;
 
     return (
       <div className="levels-container levels-container--dev">
-      <Header themeMode='header header--dev' />
-        <ul className="levels-list">
-          {devLevels.map(level => (
-            <li key={level.id} data-id={level.id} className="levels-item levels-item--dev">
-              <Link
-                to={`/dev-mode/${level.title}`}
+        <Header themeMode="header header--dev" />
+        <div className="list__wrapper list__wrapper--dev">
+          <ul className="levels-list">
+            {devLevels.map(level => (
+              <li
+                key={level.id}
                 data-id={level.id}
-                className="item-number item-number--dev"
-                onClick={e => chooseLevel(e, devLevels)}
+                className="levels-item levels-item--dev"
               >
-                {level.id}
-              </Link>
-            </li>
-          ))}
-        </ul>
+                <Link
+                  to={`/dev-mode/${level.title}`}
+                  data-id={level.id}
+                  className="item-number item-number--dev"
+                  onClick={e => chooseLevel(e, devLevels)}
+                >
+                  {level.id}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   }

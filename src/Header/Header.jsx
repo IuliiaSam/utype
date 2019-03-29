@@ -11,7 +11,7 @@ const Header = ({themeMode}) => {
         <NavLink className="Header__link" to="/levels">
           <img
             className="logo"
-            src="https://files.slack.com/files-pri/TCJ0ZHEGL-FHCV04Z8X/logo.png"
+            src="https://i.ibb.co/jMrD5tt/logo.png"
             alt="logo"
           />
         </NavLink>

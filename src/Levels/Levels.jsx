@@ -19,8 +19,6 @@ class Levels extends Component {
     this.props.clearStatistics();
     this.props.clearUserArr(this.props.selected);
     this.props.resetCounter();
-
-    console.log(this.props);
   }
 
   render() {

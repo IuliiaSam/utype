@@ -11,14 +11,15 @@ import FinalComponent from '../../components/FinalComponent/FinalComponent';
 
 const LevelScreen = ({inputTracking, clearStatistics, clearUserArr, match, selected, strArr, counter, history}) => {
   // useEffect(() => {clearStatistics(); clearUserArr(selected)}, [match]);
+  console.log(match.path)
   
   if(strArr.length===counter) {
     history.push('/result')
   }
   
   return (
-    <div className="LevelScreen">
-      <Header themeMode='header' />
+    <div className={match.path.includes('dev-mode') ? "LevelScreen LevelScreen--dev" : "LevelScreen"}>
+      <Header themeMode={match.path.includes('dev-mode') ? 'header--dev header': 'header'} />
       <Monitor inputTracking={inputTracking} />
       <Keyboard />
       {/* <FinalComponent /> */}

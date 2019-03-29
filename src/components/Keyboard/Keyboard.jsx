@@ -367,6 +367,7 @@ const Keyboard = () => {
         className="key key-rarrow disabled">
         <div>⇨</div>
       </div>
+      <div className='touchpad'></div>
     </div>
   );
 };

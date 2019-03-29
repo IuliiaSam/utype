@@ -51,7 +51,7 @@ class Static extends Component {
         datasets: [
             {
                 data: accurArr,
-            }
+            },
         ]
     }
 

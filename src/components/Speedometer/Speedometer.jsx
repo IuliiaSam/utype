@@ -9,17 +9,17 @@ const Speedometer = ({charactersPerMinute}) => {
                     ringWidth={10}
                     textColor="black"
                     minValue={0}
-                    // maxValue={1200}
+                    maxValue={500}
                     value={charactersPerMinute}
                     segments={3}
-                    startColor="lightgreen"
-                    endColor="darkgreen"
+                    startColor="red"
+                    endColor="green"
                     needleColor="black"
-                    needleHeightRatio={0.5}
+                    needleHeightRatio={0.7}
                     needleTransitionDuration={3000}
                     needleTransition="easeElastic"
                     // fluidWidth={true}
-                    width={90}
+                    width={105}
                     height={60}
                 />
             </div>

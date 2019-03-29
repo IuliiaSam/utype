@@ -6,11 +6,17 @@
 }
 
 .InputArea__sample {
-  padding: .5rem;
+  padding: 0 .5rem;
   font-size: 1.5rem;
   text-align: center;
   /* min-height: 23vh; */
-  
+}
+
+.InputArea__sample:focus {
+  /* outline: 4px double #4caf50; */
+  outline: none;
+  /* box-shadow: 0 0 7px 1px #5e5e5e; */
+  border-radius: 5px;
 }
 
 .InputArea__textArea {
