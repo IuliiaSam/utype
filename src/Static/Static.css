@@ -1,14 +1,14 @@
-.LineChart{
-    width: 500px;
-    height: 250px;
-    border: 1px solid #000;
-    margin: 0 auto;
-}
 .wrapChart{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 50rem;
+    max-height: 100vh;
+    margin: 0 auto;
 }
-.chart2{
-    margin-top: 1%;
+
+.LineChart{
+    width: 100%;
+    height: 50vh;
+    flex: 1;
 }

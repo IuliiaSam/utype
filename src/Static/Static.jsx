@@ -18,14 +18,6 @@ class Static extends Component {
 
   render() {
     const { stats } = this.props;
-    console.log(stats);
-
-    // accuracy: 2
-    // averageSpeed: 3592
-    // charactersPerMinute: 4800
-    // levelFinish: 1553781689168
-    // percentOfErrors: 98
-    // wordsPerMinute: 169
 
     let datesArr = [];
     let avgSpeedArr = [];
@@ -36,28 +28,39 @@ class Static extends Component {
       accurArr.push(el.accuracy);
     });
 
-    const avgSpeedData ={
-        labels: datesArr,
-        datasets: [
-            {
-                data: avgSpeedArr,
-                label: 'Прогресс скорости',
-            }
-        ]
-    }
+    const avgSpeedData = {
+      labels: datesArr,
+      datasets: [
+        {
+          data: avgSpeedArr,
+          backgroundColor: '#fff',
+          borderCapStye: 'square',
+          borderJoinStyle: 'round',
+          pointBackgroundColor: 'transparent',
+          pointBorderColor: 'transparent',
+          borderColor: '#4caf50'
+        }
+      ]
+    };
 
-    const avgAccurData ={
-        labels: datesArr,
-        datasets: [
-            {
-                data: accurArr,
-            },
-        ]
-    }
+    const avgAccurData = {
+      labels: datesArr,
+      datasets: [
+        {
+          data: accurArr,
+          backgroundColor: '#fff',
+          borderCapStye: 'square',
+          borderJoinStyle: 'round',
+          pointBackgroundColor: 'transparent',
+          pointBorderColor: 'transparent',
+          borderColor: '#4caf50'
+        }
+      ]
+    };
 
     return (
       <div>
-        <Header themeMode='header' />
+        <Header themeMode="header" />
 
         <div className="wrapChart">
           <div className="LineChart">
@@ -67,30 +70,64 @@ class Static extends Component {
                 title: {
                   display: true,
                   text: 'Прогресс скорости',
-                  fontSize: 14
+                  fontSize: 16,
                 },
                 legend: {
                   display: false,
                   position: 'right'
                 },
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                scales: {
+                  xAxes: [
+                    {
+                      gridLines: {
+                        display: false,
+                        // color: 'red',
+                      }
+                    }
+                  ],
+                  yAxes: [
+                    {
+                      gridLines: {
+                        // display: false
+                      }
+                    }
+                  ]
+                }
               }}
             />
           </div>
-          <div className="LineChart chart2">
+          <div className="LineChart">
             <Line
               data={avgAccurData}
               options={{
                 title: {
                   display: true,
                   text: 'Прогресс правильного ввода',
-                  fontSize: 12
+                  fontSize: 16,
                 },
                 legend: {
                   display: false,
                   position: 'right'
                 },
-                maintainAspectRatio: true
+                maintainAspectRatio: false,
+                scales: {
+                  xAxes: [
+                    {
+                      gridLines: {
+                        display: false,
+                        // color: 'red',
+                      }
+                    }
+                  ],
+                  yAxes: [
+                    {
+                      gridLines: {
+                        // display: false
+                      }
+                    }
+                  ]
+                }
               }}
             />
           </div>
