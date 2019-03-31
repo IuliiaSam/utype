@@ -25,7 +25,6 @@ export function createUserWithEmailAndPassword(email, password, name) {
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(data => {
-      console.log('user', data.user);
       const user = {
         id: data.user.uid,
         name,
@@ -33,8 +32,9 @@ export function createUserWithEmailAndPassword(email, password, name) {
         password
       };
       saveUser(user);
+      return user;
     })
-    .then()
+    .then(user => localStorage.setItem('uid', user.id))
     .catch(err => null);
 }
 
@@ -51,6 +51,7 @@ export function signOut() {
     .auth()
     .signOut()
     .then(() => console.log('sign-out successfull'))
+    .then(() => localStorage.removeItem('uid'))
     .catch(err => console.log(err));
 }
 
