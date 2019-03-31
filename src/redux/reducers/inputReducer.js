@@ -8,7 +8,9 @@ const initialState = {
 const inputs = (state=initialState, action) => {
     switch (action.type) {
         case `${action.name}`:
-            return {...state, [action.name]: action.value}    
+            return {...state, [action.name]: action.value};
+        case 'CLEARINPUTS':
+            return initialState;    
         default:
             return state;
     }

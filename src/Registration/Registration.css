@@ -73,7 +73,7 @@ margin-bottom: 1rem;
 .error .Registration-form__error {
     color: #e51c23;
     position: absolute;
-    bottom: -.8rem;
+    bottom: 0;
     width: 100%;
     text-align: center;
 }

@@ -7,10 +7,11 @@ import './LoginForm.css';
 import { signInWithEmailAndPassword } from '../server';
 
 import { inputData } from '../redux/actions/LoginInputActions';
+import { clearInputs } from '../redux/actions/inputActions';
 
 import { logedIn } from '../redux/actions/logedInAction';
 
-const LoginForm = ({ inputData, inputs, logedIn }) => {
+const LoginForm = ({ inputData, inputs, logedIn, clearInputs }) => {
   return (
     <div className="LoginForm">
       <form
@@ -46,7 +47,7 @@ const LoginForm = ({ inputData, inputs, logedIn }) => {
         </button>
         <p className="last-par text-center">
           <span>Need to create an account? </span>
-          <NavLink to="/register" className="link">
+          <NavLink to="/register" className="link" onClick={clearInputs}>
             Sign Up
           </NavLink>
         </p>
@@ -64,7 +65,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     inputData: e => dispatch(inputData(e)),
-    logedIn: uid => dispatch(logedIn(uid))
+    logedIn: uid => dispatch(logedIn(uid)),
+    clearInputs: () => dispatch(clearInputs()),
   };
 }
 

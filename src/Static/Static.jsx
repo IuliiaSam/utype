@@ -12,6 +12,7 @@ import Header from '../Header/Header';
 class Static extends Component {
   componentDidMount = () => {
     const userID = localStorage.getItem('uid');
+    console.log(userID);
 
     getUserStat(userID).then(statArr => this.props.getUserStatistics(statArr));
   };

@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 import './Registration.css';
 
-import { inputData } from '../redux/actions/inputActions';
+import { inputData, clearInputs } from '../redux/actions/inputActions';
 import { createUserWithEmailAndPassword } from '../server';
 import Button from '../Button/Button';
 
-const Registration = ({ readInputValue, inputs }) => {
+const Registration = ({ readInputValue, inputs, clearInputs }) => {
   const regular = {
     name: /^[A-Za-z0-9_]{4,16}$/,
     email: /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim,
@@ -141,7 +141,7 @@ const Registration = ({ readInputValue, inputs }) => {
 
         <p className="last-par text-center">
           <span>Already have an account? </span>
-          <NavLink className="link" to="/login">
+          <NavLink className="link" to="/login" onClick={clearInputs}>
             Sign In
           </NavLink>
         </p>
@@ -151,13 +151,14 @@ const Registration = ({ readInputValue, inputs }) => {
 };
 
 const MSTP = state => ({
-  inputs: state.inputs
+  inputs: state.inputs,
 });
 
 const MDTP = dispatch => ({
   readInputValue: e => {
     dispatch(inputData(e));
-  }
+  },
+  clearInputs: () => dispatch(clearInputs()),
 });
 
 export default connect(
